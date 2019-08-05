@@ -13,4 +13,9 @@ class ProjectsController extends Controller
 
         return view('projects.index', compact('projects'));
     }
+
+    public function store()
+    {
+        Project::create(request(['title', 'description']));
+    }
 }
