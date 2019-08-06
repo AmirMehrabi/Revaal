@@ -19,7 +19,16 @@
         <div class="lg:w-3/4 px-3 mb-6">
             <div class="mb-8">
                 <h2 class="text-gray-600 mb-3">کارها</h2>
-                <div class="card">لورم ایپسوم</div>
+                @foreach ($project->tasks as $task)
+                    <div class="card mb-3">{{$task->body}}</div>
+                @endforeach
+                    <div class="card mb-3">
+                        <form action="{{ $project->path() .'/tasks'}} " method="post">
+                            @csrf
+
+                            <input name="body" placeholder="یک کار جدید وارد کنید" class="w-full">
+                        </form>    
+                    </div>
 
 
             </div>

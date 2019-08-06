@@ -19,7 +19,7 @@ class CreateTasksTable extends Migration
             $table->text('body');
             $table->timestamps();
 
-            $table->foreign('project_id')->references('id')->on('project')->onDelete('cascade');
+            $table->foreign('project_id')->references('id')->on('projects')->onDelete('cascade');
         });
     }
 
