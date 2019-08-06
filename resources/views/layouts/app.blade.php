@@ -20,11 +20,11 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
 </head>
-<body class="bg-gray-100">
+<body class="bg-gray-200">
     <div id="app">
         <nav class="bg-white">
             <div class="container mx-auto">
-                <div class="flex justify-between items-center">
+                <div class="flex justify-between items-center py-2">
                                     <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
                 </a>
