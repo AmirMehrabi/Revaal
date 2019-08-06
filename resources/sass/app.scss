@@ -104,3 +104,8 @@ body {
     box-shadow: 0 2px 7px 0 #b0eaff;
     background-color: #47cdff;
 }
+
+
+.card {
+    @apply .bg-white .ml-4 .rounded-lg .shadow .p-5;
+}
