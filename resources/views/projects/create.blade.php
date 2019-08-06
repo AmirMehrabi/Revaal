@@ -5,7 +5,7 @@
 
 <form action="/projects" method="post">
 
-    @scrf
+    @csrf
 
     <input type="text" name="title" placeholder="Title">
 
