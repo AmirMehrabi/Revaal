@@ -31,13 +31,7 @@
         </div>
 
         <div class="lg:w-1/4 px-3">
-            <div class="card">
-                <h1>{{$project->title}}</h1>
-
-                <div>{{$project->description}}</div>
-
-                <a href="/projects">بازگشت</a>
-            </div>
+            @include('projects.card')
         </div>
     </div>
 </main>
