@@ -26,7 +26,8 @@ class ProjectsController extends Controller
             'description' => 'required'
         ]);
 
-        $attributed['owner_id'] = auth()->id();
-        Project::create($attributes);
+        $attributes['owner_id'] = auth()->id();
+
+        auth()->user()->projects()->create($attributes);
     }
 }
