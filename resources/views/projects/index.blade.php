@@ -7,12 +7,20 @@
     <h1 class="mr-auto">روال</h1>
     <a href="/projects/create">پروژه‌ی جدید</a>
 </div>
-<ul>
+
+<div>
     @forelse ($projects as $project)
-<li><a href="/projects/{{$project->id}}">{{$project->title}}</a></li>
+
+    <div class="bg-white">
+        <h3>{{$project->title}}</h3>
+
+        <div>{{$project->description}}</div>
+    </div>
+    
     @empty
-        <li>پروژه‌ای وجود ندارد</li>
+        <div>پروژه‌ای وجود ندارد</div>
     @endforelse
-</ul>
+</div>
+
 
 @endsection
