@@ -6,7 +6,9 @@
 
 <header class="flex items-center mb-4 py-4">
     <div class="flex justify-between items-center w-full ">
-        <h3>پروژه‌های من</h3>
+        <p class="text-gray-600 text-sm">
+            <a href="/projects">پروژه‌های من</a> / {{$project->title}}
+        </p>
         <a href="/projects/create" class="button">پروژه‌ی جدید</a>
     </div>
 
@@ -15,14 +17,14 @@
 <main>
     <div class="lg:flex -mx-3">
         <div class="lg:w-3/4 px-3 mb-6">
-            <div class="mb-6">
+            <div class="mb-8">
                 <h2 class="text-gray-600 mb-3">کارها</h2>
                 <div class="card">لورم ایپسوم</div>
 
 
             </div>
 
-            <div class="mb-6">
+            <div class="mb-8">
                 <h2 class="text-gray-600 mb-3">یادداشت‌های عمومی</h2>
 
                 <div class="card">لورم ایپسوم</div>
