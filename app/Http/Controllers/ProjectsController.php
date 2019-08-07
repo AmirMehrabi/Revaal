@@ -9,7 +9,7 @@ class ProjectsController extends Controller
 {
     public function index()
     {
-        $projects = auth()->user()->projects;
+        $projects = auth()->user()->projects()->latest('updated_at');
 
         return view('projects.index', compact('projects'));
     }
