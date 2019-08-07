@@ -43,4 +43,7 @@ class ProjectsController extends Controller
 
         return redirect('/projects');
     }
+
+    public function update(Project $project)
+    { }
 }
