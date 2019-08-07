@@ -8,7 +8,7 @@
         </h1>
         <form action="{{$project->path()}}" method="post">
         @method('PATCH')
-        @include('projects.form')
+        @include('projects.form', ['buttonText' => 'ویرایش پروژه'])
         
     </div>
 

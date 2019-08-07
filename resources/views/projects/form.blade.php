@@ -22,7 +22,7 @@
     <div class="field text-left">
         <div class="control">
             <a href="{{$project->path()}}">انصراف</a>
-            <button type="submit" class="button text-center">به روز رسانی</button>
+            <button type="submit" class="button text-center">{{$buttonText}}</button>
 
         </div>
         

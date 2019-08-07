@@ -10,7 +10,7 @@
 
         @csrf
 
-        @include('projects.form', ['project' => new App\Project])
+        @include('projects.form', ['project' => new App\Project, 'buttonText' => 'افزودن پروژه'])
     </div>
 
 

@@ -9,7 +9,7 @@
         <p class="text-gray-600 text-sm">
             <a href="/projects">پروژه‌های من</a> / {{$project->title}}
         </p>
-        <a href="/projects/create" class="button">پروژه‌ی جدید</a>
+        <a href="{{$project->path() . '/edit'}}" class="button">ویرایش پروژه</a>
     </div>
 
 </header>
