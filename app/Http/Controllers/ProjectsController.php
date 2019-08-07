@@ -50,5 +50,9 @@ class ProjectsController extends Controller
         if (auth()->user()->isNot($project->owner)) {
             abort(403);
         }
+
+        $project->update([
+            'notes' => request('notes')
+        ]);
     }
 }
