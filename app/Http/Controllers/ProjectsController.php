@@ -10,7 +10,6 @@ class ProjectsController extends Controller
     public function index()
     {
         $projects = auth()->user()->projects()->orderBy('updated_at', 'desc')->get();
-
         return view('projects.index', compact('projects'));
     }
 
@@ -23,8 +22,6 @@ class ProjectsController extends Controller
     {
 
         $this->authorize('update', $project);
-
-
         return view('projects.show', compact('project'));
     }
 
@@ -32,7 +29,6 @@ class ProjectsController extends Controller
     {
 
         $project = auth()->user()->projects()->create($this->validateRequest());
-
         return redirect($project->path());
     }
 
@@ -45,9 +41,7 @@ class ProjectsController extends Controller
     {
 
         $this->authorize('update', $project);
-
         $project->update($this->validateRequest());
-
         return redirect($project->path());
     }
 
