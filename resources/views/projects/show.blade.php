@@ -21,7 +21,7 @@
                 <h2 class="text-gray-600 mb-3">کارها</h2>
                 @foreach ($project->tasks as $task)
                     <div class="card mb-3">
-                        <form action="{{$project->path() . '/tasks/' . $task->id }}" method="post">
+                        <form action="{{$task->path()}}" method="post">
                         
                             @method('PATCH')
                             @csrf
