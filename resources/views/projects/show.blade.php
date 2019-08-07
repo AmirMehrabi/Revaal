@@ -47,8 +47,14 @@
 
             <div class="mb-8">
                 <h2 class="text-gray-600 mb-3">یادداشت‌های عمومی</h2>
-
-                <textarea name="" class="card w-full" id="" rows="10" placeholder="آیا یادداشتی دارید که می‌خواهید به این پروژه اضافه کنید؟">{{$project->notes}}</textarea>
+                <form action="{{ $project->path()}}" method="post">
+                    @csrf
+                    @method('PATCH')
+                    <textarea name="" class="card w-full" id="" rows="10" placeholder="آیا یادداشتی دارید که می‌خواهید به این پروژه اضافه کنید؟">
+                        {{$project->notes}}
+                    </textarea>
+                    <button type="submit" class="button">ذخیره</button>
+                </form>
             </div>
 
         </div>
