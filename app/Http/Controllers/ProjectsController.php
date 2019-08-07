@@ -54,5 +54,7 @@ class ProjectsController extends Controller
         $project->update([
             'notes' => request('notes')
         ]);
+
+        return redirect($project->path());
     }
 }
