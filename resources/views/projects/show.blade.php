@@ -50,7 +50,7 @@
                 <form action="{{ $project->path()}}" method="post">
                     @csrf
                     @method('PATCH')
-                    <textarea name="" class="card w-full" id="" rows="10" placeholder="آیا یادداشتی دارید که می‌خواهید به این پروژه اضافه کنید؟">
+                    <textarea name="notes" class="card w-full" id="" rows="10" placeholder="آیا یادداشتی دارید که می‌خواهید به این پروژه اضافه کنید؟">
                         {{$project->notes}}
                     </textarea>
                     <button type="submit" class="button">ذخیره</button>
