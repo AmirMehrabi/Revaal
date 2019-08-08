@@ -29,7 +29,10 @@ class ProjectObserver
      */
     public function updated(Project $project)
     {
-        //
+        Activity::create([
+            'project_id' => $project->id,
+            'description' => 'updated'
+        ]);
     }
 
     /**
