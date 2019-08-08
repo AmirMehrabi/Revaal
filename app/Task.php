@@ -10,6 +10,16 @@ class Task extends Model
 
     protected $touches = ['project'];
 
+    protected $casts = [
+        'completed' => 'boolean'
+    ];
+
+    public function complete()
+    {
+        $this->update(['completed' => true]);
+        $this->project->recordActivity('completed_task');
+    }
+
     public function project()
     {
         return $this->belongsTo(Project::class);
