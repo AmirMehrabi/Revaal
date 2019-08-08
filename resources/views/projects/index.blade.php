@@ -5,7 +5,10 @@
 
 <header class="flex items-center mb-4 py-4">
     <div class="flex justify-between items-center w-full ">
-        <h3>پروژه‌های من</h3>
+        <p class="text-gray-600 text-sm">
+            <a href="/projects">پروژه‌های من</a>
+        </p>        
+        
         <a href="/projects/create" class="button">پروژه‌ی جدید</a>
     </div>
 
