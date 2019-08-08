@@ -8,10 +8,10 @@
 });
 
 
-\App\Project::created(function ($project) {
+\App\Project::updated(function ($project) {
     \App\Activity::create([
         'project_id' => $project->id,
-        'description' => 'created'
+        'description' => 'updated'
     ]);
 });
 /*
