@@ -17,7 +17,7 @@ class ProjectObserver
         $project->recordActivity('created');
     }
 
-    public function undating(Project $project)
+    public function updating(Project $project)
     {
         $project->old = $project->getOriginal();
     }
