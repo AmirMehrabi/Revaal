@@ -53,12 +53,4 @@ class ProjectsController extends Controller
             'notes' => 'nullable'
         ]);
     }
-
-    public function recordActivity($type)
-    {
-        Activity::create([
-            'project_id' => $this->id,
-            'description' => $type
-        ]);
-    }
 }
