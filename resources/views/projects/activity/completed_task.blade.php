@@ -1,1 +1,1 @@
-شما وظیفه‌ی <b>«{{$activity->subject->body}}»</b> را به اتمام رساندید
+{{$activity->user->name}} وظیفه‌ی <b>«{{$activity->subject->body}}»</b> را به اتمام رساند

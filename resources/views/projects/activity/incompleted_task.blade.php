@@ -1,1 +1,1 @@
-شما وظیفه‌ی <b>«{{$activity->subject->body}}»</b> را رها کردید
+{{$activity->user->name}} وظیفه‌ی <b>«{{$activity->subject->body}}»</b> را به حالت ناتمام درآورد

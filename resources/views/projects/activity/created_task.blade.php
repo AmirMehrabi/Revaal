@@ -1,1 +1,1 @@
-شما وظیفه‌ی <b>«{{$activity->subject->body}}»</b> ایجاد کردید
+{{$activity->user->name}} وظیفه‌ی <b>«{{$activity->subject->body}}»</b> را ایجاد کرد
