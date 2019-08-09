@@ -12,7 +12,7 @@ class Task extends Model
 
     protected $touches = ['project'];
 
-    public $old = [];
+
 
     protected $casts = [
         'completed' => 'boolean'

@@ -5,6 +5,8 @@ namespace App;
 trait RecordsActivity
 {
 
+    public $old = [];
+
     public function recordActivity($description)
     {
         $this->activity()->create([

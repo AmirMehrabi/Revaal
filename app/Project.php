@@ -12,7 +12,6 @@ class Project extends Model
 
     protected $guarded = [];
 
-    public $old = [];
 
     public function path()
     {
