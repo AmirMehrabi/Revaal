@@ -2,13 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Project;
+use App\User;
+use App\Http\Requests\ProjectInvitationRequest;
+
 use Illuminate\Http\Request;
 
 class ProjectInvitationsController extends Controller
 {
 
 
-    public function store(Project $project, ProjectInvitationsController $request)
+    public function store(Project $project, ProjectInvitationRequest $request)
     {
 
         // $this->authorize('update', $project);

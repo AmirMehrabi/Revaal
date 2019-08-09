@@ -68,6 +68,8 @@
                 </form>
             </div>
 
+            @include('errors', ['bag' => 'invitations'])
+
         </div>
 
         <div class="lg:w-1/4 px-3">
@@ -76,7 +78,7 @@
             @include('projects.activity.card')
 
 
-            <div class="card flex flex-col" style="height: 200px;">
+            <div class="card flex flex-col">
                 <h3 class="text-xl py-4 -mr-5 mb-3 border-r-4 border-blue-300 pr-4">
                     <a href="{{ $project->path()}}">افزودن کاربر</a>
                 </h3>
@@ -91,6 +93,8 @@
 
                         <button type="submit" class="button">دعوت</button>
                     </form>
+
+                    @include('errors', ['bag' => 'invitations'])
                 </footer>
             </div>
 
