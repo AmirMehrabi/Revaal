@@ -36,19 +36,20 @@
                     </ul>
 
                     <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
+                    <div class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
                         @guest
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                            </li>
+                            <a class="nav-link" href="{{ route('login') }}">{{ __('ورود') }}</a>
+
                             @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
+                                <a class="nav-link" href="{{ route('register') }}">{{ __('ثبت نام') }}</a>
                             @endif
                         @else
-                            <li class="nav-item dropdown">
+                        <a href="" class="flex items-center text-default no-underline text-sm" >
+                            <img src="{{gravatar_url(auth()->user()->email)}}" width="35" class="rounded-full ml-3" alt="">
+                            {{auth()->user()->name}}
+                        </a>
+                            {{-- <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
@@ -64,9 +65,9 @@
                                         @csrf
                                     </form>
                                 </div>
-                            </li>
+                            </li> --}}
                         @endguest
-                    </ul>
+                        </div>
                 </div>
                 </div>
             </div>
