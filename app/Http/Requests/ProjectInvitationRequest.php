@@ -13,7 +13,7 @@ class ProjectInvitationRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return Gate::allows('update', $this->route('project'));
     }
 
     /**
@@ -24,7 +24,14 @@ class ProjectInvitationRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'email' => 'exists:users,email'
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'email.exists' => 'کاربری که دعوت می‌کنید باید عضو روال باشد'
         ];
     }
 }

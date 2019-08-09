@@ -8,16 +8,16 @@ class ProjectInvitationsController extends Controller
 {
 
 
-    public function store(Project $project)
+    public function store(Project $project, ProjectInvitationsController $request)
     {
 
-        $this->authorize('update', $project);
+        // $this->authorize('update', $project);
 
-        request()->validate([
-            'email' => 'exists:users,email'
-        ], [
-            'email.exists' => 'کاربری که دعوت می‌کنید باید عضو روال باشد'
-        ]);
+        // request()->validate([
+        //     'email' => 'exists:users,email'
+        // ], [
+        //     'email.exists' => 'کاربری که دعوت می‌کنید باید عضو روال باشد'
+        // ]);
 
         $user = User::whereEmail(request('email'))->first();
 
