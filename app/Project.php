@@ -39,10 +39,12 @@ class Project extends Model
     }
 
     public function invite(User $user)
-    { }
+    {
+        return $this->members()->attach($user);
+    }
 
     public function members()
     {
-        return $this->belongsToMany(User::class);
+        return $this->belongsToMany(User::class, 'project_members');
     }
 }
