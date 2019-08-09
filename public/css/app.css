@@ -7634,6 +7634,13 @@ video {
   background-color: #47cdff;
 }
 
+.button.is-outlined {
+  background-color: #fff;
+  border-width: 1px;
+  border-color: #63b3ed;
+  color: #63b3ed;
+}
+
 .card {
   background-color: #fff;
   border-radius: 0.5rem;
