@@ -2,11 +2,6 @@
 
 namespace App\Providers;
 
-use App\Project;
-use App\Observers\ProjectObserver;
-
-use App\Task;
-use App\Observers\TaskObserver;
 
 use Illuminate\Support\ServiceProvider;
 
@@ -28,8 +23,5 @@ class AppServiceProvider extends ServiceProvider
      * @return void
      */
     public function boot()
-    {
-        Project::observe(ProjectObserver::class);
-        Task::observe(TaskObserver::class);
-    }
+    { }
 }
