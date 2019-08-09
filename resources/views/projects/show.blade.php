@@ -9,8 +9,21 @@
         <p class="text-gray-600 text-sm">
             <a href="/projects">پروژه‌های من</a> / {{$project->title}}
         </p>
-        <a href="{{$project->path() . '/edit'}}" class="button">ویرایش پروژه</a>
+
+        <div class="flex items-center">
+            <img src="{{gravatar_url($project->owner->email)}}" alt="{{$project->owner->name}}" class="rounded-full w-8 ml-2">
+
+            @foreach ($project->members as $member)
+                <img src="{{gravatar_url($member->email)}}" alt="{{$member->name}}" class="rounded-full w-8 ml-2">
+            @endforeach
+
+
+            <a href="{{$project->path() . '/edit'}}" class="button mr-4">ویرایش پروژه</a>
+
+        </div>
     </div>
+
+
 
 </header>
 
