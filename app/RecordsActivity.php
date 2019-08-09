@@ -31,11 +31,9 @@ trait RecordsActivity
     protected static function recordableEvents()
     {
         if (isset(static::$recordableEvents)) {
-            $recordableEvents = static::$recordableEvents;
-        } else {
-            $recordableEvents = ['created', 'updated', 'deleted'];
+            return static::$recordableEvents;
         }
-        return $recordableEvents;
+        return ['created', 'updated', 'deleted'];
     }
 
     public function recordActivity($description)
