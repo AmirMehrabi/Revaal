@@ -3,5 +3,13 @@
                     <a href="{{ $project->path()}}">{{$project->title}}</a>
                 </h3>
 
-                <div class="text-gray-600">{{str_limit($project->description)}}</div>
+                <div class="text-gray-600 mb-4">{{str_limit($project->description)}}</div>
+
+                <footer>
+                    <form method="POST" action="{{$project->path()}}" class="text-left">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="text-xs">حذف پروژه</button>
+                    </form>
+                </footer>
             </div>
