@@ -38,16 +38,4 @@ class Project extends Model
     {
         return $this->hasMany(Activity::class)->latest();
     }
-
-
-
-    protected function activityChanges()
-    {
-        if ($this->wasChanged()) {
-            return [
-                'before' => array_except(array_diff($this->old, $this->getAttributes()), 'updated_at'),
-                'after' => array_except($this->getChanges(), 'updated_at')
-            ];
-        }
-    }
 }
