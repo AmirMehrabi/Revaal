@@ -77,7 +77,7 @@
 
             @include('projects.activity.card')
 
-
+            @include('projects.invite')
 
 
         </div>
