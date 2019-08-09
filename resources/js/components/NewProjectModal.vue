@@ -66,3 +66,14 @@
     </footer>
   </modal>
 </template>
+
+
+<script>
+export default {
+  methods: {
+    addTask() {
+      alert("You won't save unless called upon!");
+    }
+  }
+};
+</script>
