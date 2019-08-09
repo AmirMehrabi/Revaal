@@ -7,6 +7,13 @@ trait RecordsActivity
 
     public $old = [];
 
+    public static function bootRecordsActivity()
+    {
+        static::updating(function ($model) {
+            $model->old = $model->getOriginal();
+        });
+    }
+
     public function recordActivity($description)
     {
         $this->activity()->create([
@@ -14,6 +21,12 @@ trait RecordsActivity
             'description' => $description,
             'changes' => $this->activityChanges()
         ]);
+    }
+
+
+    public function activity()
+    {
+        return $this->morphMany(Activity::class, 'subject')->latest();
     }
 
     protected function activityChanges()
