@@ -31,19 +31,19 @@
       <div class="flex-1 ml-4">
           <div class="mb-4">
               <label for="title" class="text-sm block mb-2">تیتر</label>
-              <input type="text" name="title" id="title" class="border border-gray-300 py-2 px-2 text-sm block w-full rounded" placeholder="پروژه‌ی جدید من">
+              <input type="text" name="title" id="title" class="border border-gray-300 p-2 text-sm block w-full rounded" placeholder="پروژه‌ی جدید من">
           </div>
 
           <div class="mb-4">
               <label for="description" class="text-sm block mb-2">تیتر</label>
-              <textarea name="description" id="description" class="border border-gray-300 py-2 px-2 text-sm block w-full rounded" placeholder="پروژه‌ی جدید من" rows="7"> </textarea>
+              <textarea name="description" id="description" class="border border-gray-300 p-2 text-sm block w-full rounded" placeholder="پروژه‌ی جدید من" rows="7"> </textarea>
           </div>
       </div>
 
       <div class="flex-1 mr-4">
           <div class="mb-4">
               <label class="text-sm block mb-2">کارهای مربوط به این پروژه</label>
-              <input type="text" class="border border-gray-300 py-2 px-2 text-sm block w-full rounded" placeholder="کار اول">
+              <input type="text" class="border border-gray-300 p-2 text-sm block w-full rounded" placeholder="کار اول">
           </div>
       </div>
   </div>
