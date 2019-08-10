@@ -72,7 +72,11 @@
         </div>
       </div>
       <footer class="flex justify-end">
-        <button class="button is-outlined ml-2" @click="$modal.hide('new-project')">رها کردن</button>
+        <button
+          type="button"
+          class="button is-outlined ml-2"
+          @click="$modal.hide('new-project')"
+        >رها کردن</button>
 
         <button type="submit" class="button">ساخت پروژه</button>
       </footer>
