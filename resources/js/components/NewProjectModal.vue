@@ -74,12 +74,20 @@
 export default {
   data() {
     return {
-      tasks: [{ value: "" }]
+      form: {
+        title: "",
+        description: "",
+        tasks: [{ value: "" }]
+      }
     };
   },
   methods: {
     addTask() {
       this.tasks.push({ value: "" });
+    },
+
+    submit() {
+      axios.post("/projects", this.form);
     }
   }
 };

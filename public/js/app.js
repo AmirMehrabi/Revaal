@@ -1825,9 +1825,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      tasks: [{
-        value: ""
-      }]
+      form: {
+        title: "",
+        description: "",
+        tasks: [{
+          value: ""
+        }]
+      }
     };
   },
   methods: {
@@ -1835,6 +1839,9 @@ __webpack_require__.r(__webpack_exports__);
       this.tasks.push({
         value: ""
       });
+    },
+    submit: function submit() {
+      axios.post("/projects", this.form);
     }
   }
 });
