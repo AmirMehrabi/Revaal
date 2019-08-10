@@ -1823,6 +1823,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -37240,6 +37241,14 @@ var render = function() {
             ),
             _vm._v(" "),
             _c("textarea", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.form.description,
+                  expression: "form.description"
+                }
+              ],
               staticClass:
                 "border border-gray-300 p-2 text-sm block w-full rounded",
               attrs: {
@@ -37247,6 +37256,15 @@ var render = function() {
                 id: "description",
                 placeholder: "پروژه‌ی جدید من",
                 rows: "7"
+              },
+              domProps: { value: _vm.form.description },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.form, "description", $event.target.value)
+                }
               }
             })
           ])

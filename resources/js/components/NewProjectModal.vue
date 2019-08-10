@@ -24,6 +24,7 @@
             class="border border-gray-300 p-2 text-sm block w-full rounded"
             placeholder="پروژه‌ی جدید من"
             rows="7"
+            v-model="form.description"
           ></textarea>
         </div>
       </div>
