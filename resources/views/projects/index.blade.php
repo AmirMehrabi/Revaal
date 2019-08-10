@@ -9,7 +9,7 @@
             <a href="/projects">پروژه‌های من</a>
         </p>        
         
-        <a href="/projects/create" class="button">پروژه‌ی جدید</a>
+        <a href="/projects/create" class="button" @click.prevent="$modal.show('new-project')">پروژه‌ی جدید</a>
     </div>
 
 </header>
@@ -28,7 +28,6 @@
 
 
 
-<a href="#" @click.prevent="$modal.show('new-project')">نمایش مودال</a>
 
 
 @endsection
