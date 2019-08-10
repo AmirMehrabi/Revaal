@@ -12,11 +12,15 @@
               name="title"
               id="title"
               class="border border-gray-300 p-2 text-sm block w-full rounded"
-              :class="errors.title ? 'border-red-400' : 'border-gray-300'"
+              :class="form.errors.title ? 'border-red-400' : 'border-gray-300'"
               placeholder="پروژه‌ی جدید من"
               v-model="form.title"
             />
-            <span class="text-xs italic text-red-600" v-if="errors.title" v-text="errors.title[0]"></span>
+            <span
+              class="text-xs italic text-red-600"
+              v-if="form.errors.title"
+              v-text="form.errors.title[0]"
+            ></span>
           </div>
 
           <div class="mb-4">
@@ -25,15 +29,15 @@
               name="description"
               id="description"
               class="border border-gray-300 p-2 text-sm block w-full rounded"
-              :class="errors.description ? 'border-red-400' : 'border-gray-300'"
+              :class="form.errors.description ? 'border-red-400' : 'border-gray-300'"
               placeholder="پروژه‌ی جدید من"
               rows="7"
               v-model="form.description"
             ></textarea>
             <span
               class="text-xs italic text-red-600"
-              v-if="errors.title"
-              v-text="errors.description[0]"
+              v-if="form.errors.title"
+              v-text="form.errors.description[0]"
             ></span>
           </div>
         </div>

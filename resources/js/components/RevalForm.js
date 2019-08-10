@@ -22,7 +22,7 @@ class RevalForm {
     }
     submit(endpoint) {
         return axios.post(endpoint, this.data())
-            .catch(this.onFail.bind($this))
+            .catch(this.onFail.bind(this))
     }
 
     onFail(error) {

@@ -1858,6 +1858,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -38033,7 +38037,7 @@ var render = function() {
                   ],
                   staticClass:
                     "border border-gray-300 p-2 text-sm block w-full rounded",
-                  class: _vm.errors.title
+                  class: _vm.form.errors.title
                     ? "border-red-400"
                     : "border-gray-300",
                   attrs: {
@@ -38053,10 +38057,12 @@ var render = function() {
                   }
                 }),
                 _vm._v(" "),
-                _vm.errors.title
+                _vm.form.errors.title
                   ? _c("span", {
                       staticClass: "text-xs italic text-red-600",
-                      domProps: { textContent: _vm._s(_vm.errors.title[0]) }
+                      domProps: {
+                        textContent: _vm._s(_vm.form.errors.title[0])
+                      }
                     })
                   : _vm._e()
               ]),
@@ -38082,7 +38088,7 @@ var render = function() {
                   ],
                   staticClass:
                     "border border-gray-300 p-2 text-sm block w-full rounded",
-                  class: _vm.errors.description
+                  class: _vm.form.errors.description
                     ? "border-red-400"
                     : "border-gray-300",
                   attrs: {
@@ -38102,11 +38108,11 @@ var render = function() {
                   }
                 }),
                 _vm._v(" "),
-                _vm.errors.title
+                _vm.form.errors.title
                   ? _c("span", {
                       staticClass: "text-xs italic text-red-600",
                       domProps: {
-                        textContent: _vm._s(_vm.errors.description[0])
+                        textContent: _vm._s(_vm.form.errors.description[0])
                       }
                     })
                   : _vm._e()
@@ -50657,7 +50663,7 @@ function () {
   }, {
     key: "submit",
     value: function submit(endpoint) {
-      return axios.post(endpoint, this.data())["catch"](this.onFail.bind($this));
+      return axios.post(endpoint, this.data())["catch"](this.onFail.bind(this));
     }
   }, {
     key: "onFail",
