@@ -107,6 +107,9 @@ export default {
     },
 
     async submit() {
+      if (!this.form.tasks[0].body) {
+        delete this.form.originalData.tasks;
+      }
       this.form
         .submit("/projects")
         .then(response => (location = response.data.message));
