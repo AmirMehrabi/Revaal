@@ -1886,7 +1886,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                this.form.submit("/projects"); // try {
+                this.form.submit("/projects").then(function (response) {
+                  return location = response.data.message;
+                }); // try {
                 //   location = (await axios.post("/projects", this.form)).data.message;
                 // } catch (error) {
                 //   this.errors = error.response.data.errors;
@@ -50656,7 +50658,7 @@ function () {
   }, {
     key: "submit",
     value: function submit(endpoint) {
-      axios.post(endpoint, this.data());
+      return axios.post(endpoint, this.data());
     }
   }]);
 

@@ -21,7 +21,7 @@ class RevalForm {
         return data;
     }
     submit(endpoint) {
-        axios.post(endpoint, this.data())
+        return axios.post(endpoint, this.data())
     }
 }
 
