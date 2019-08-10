@@ -50647,6 +50647,7 @@ function () {
     this.originalData = JSON.parse(JSON.stringify(data));
     Object.assign(this, data);
     this.errors = {};
+    this.submitted = false;
   }
 
   _createClass(RevalForm, [{
@@ -50663,12 +50664,24 @@ function () {
   }, {
     key: "submit",
     value: function submit(endpoint) {
-      return axios.post(endpoint, this.data())["catch"](this.onFail.bind(this));
+      return axios.post(endpoint, this.data())["catch"](this.onFail.bind(this)).then(this.onSuccess.bind(this));
+    }
+  }, {
+    key: "onSuccess",
+    value: function onSuccess(response) {
+      this.submitted = true;
+      return response;
     }
   }, {
     key: "onFail",
     value: function onFail(error) {
       this.errors = error.response.data.errors;
+      throw error;
+    }
+  }, {
+    key: "reset",
+    value: function reset() {
+      Object.assign(this, this.originalData);
     }
   }]);
 

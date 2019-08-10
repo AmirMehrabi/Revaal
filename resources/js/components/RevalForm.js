@@ -9,6 +9,8 @@ class RevalForm {
 
         this.errors = {};
 
+        this.submitted = false;
+
     }
 
     data() {
@@ -23,10 +25,22 @@ class RevalForm {
     submit(endpoint) {
         return axios.post(endpoint, this.data())
             .catch(this.onFail.bind(this))
+            .then(this.onSuccess.bind(this))
+    }
+
+    onSuccess(response) {
+        this.submitted = true;
+        return response;
     }
 
     onFail(error) {
-        this.errors = error.response.data.errors
+        this.errors = error.response.data.errors;
+
+        throw error;
+    }
+
+    reset() {
+        Object.assign(this, this.originalData);
     }
 }
 
