@@ -1833,10 +1833,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -1860,9 +1856,8 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       axios.post("/projects", this.form).then(function (response) {
-        alert("پروژه ساخته شد");
+        location.reload();
       })["catch"](function (error) {
-        alert("ERROR");
         _this.errors = error.response.data.errors;
       });
     }
@@ -37269,7 +37264,7 @@ var render = function() {
                 _vm._v(" "),
                 _vm.errors.title
                   ? _c("span", {
-                      staticClass: "text-xs text-italic text-red-400",
+                      staticClass: "text-xs italic text-red-600",
                       domProps: { textContent: _vm._s(_vm.errors.title[0]) }
                     })
                   : _vm._e()
@@ -37318,7 +37313,7 @@ var render = function() {
                 _vm._v(" "),
                 _vm.errors.title
                   ? _c("span", {
-                      staticClass: "text-xs text-italic text-red-400",
+                      staticClass: "text-xs italic text-red-600",
                       domProps: {
                         textContent: _vm._s(_vm.errors.description[0])
                       }

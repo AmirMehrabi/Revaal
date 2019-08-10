@@ -16,11 +16,7 @@
               placeholder="پروژه‌ی جدید من"
               v-model="form.title"
             />
-            <span
-              class="text-xs text-italic text-red-400"
-              v-if="errors.title"
-              v-text="errors.title[0]"
-            ></span>
+            <span class="text-xs italic text-red-600" v-if="errors.title" v-text="errors.title[0]"></span>
           </div>
 
           <div class="mb-4">
@@ -35,7 +31,7 @@
               v-model="form.description"
             ></textarea>
             <span
-              class="text-xs text-italic text-red-400"
+              class="text-xs italic text-red-600"
               v-if="errors.title"
               v-text="errors.description[0]"
             ></span>
@@ -106,10 +102,9 @@ export default {
       axios
         .post("/projects", this.form)
         .then(response => {
-          alert("پروژه ساخته شد");
+          location.reload();
         })
         .catch(error => {
-          alert("ERROR");
           this.errors = error.response.data.errors;
         });
     }
