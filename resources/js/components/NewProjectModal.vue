@@ -46,7 +46,7 @@
               class="border border-gray-300 mb-2 p-2 text-sm block w-full rounded"
               placeholder="کار اول"
               v-for="task in form.tasks"
-              v-model="task.value"
+              v-model="task.body"
             />
           </div>
 
@@ -92,14 +92,14 @@ export default {
       form: {
         title: "",
         description: "",
-        tasks: [{ value: "" }]
+        tasks: [{ body: "" }]
       },
       errors: {}
     };
   },
   methods: {
     addTask() {
-      this.form.tasks.push({ value: "" });
+      this.form.tasks.push({ body: "" });
     },
 
     async submit() {
