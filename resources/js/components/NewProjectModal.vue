@@ -32,10 +32,10 @@
           <label class="text-sm block mb-2">کارهای مربوط به این پروژه</label>
           <input
             type="text"
-            class="border border-gray-300 p-2 text-sm block w-full rounded"
+            class="border border-gray-300 mb-2 p-2 text-sm block w-full rounded"
             placeholder="کار اول"
             v-for="task in tasks"
-            v-bind:key="task"
+            v-model="task.value"
           />
         </div>
 

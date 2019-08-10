@@ -37238,10 +37238,26 @@ var render = function() {
               _vm._v(" "),
               _vm._l(_vm.tasks, function(task) {
                 return _c("input", {
-                  key: task,
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: task.value,
+                      expression: "task.value"
+                    }
+                  ],
                   staticClass:
-                    "border border-gray-300 p-2 text-sm block w-full rounded",
-                  attrs: { type: "text", placeholder: "کار اول" }
+                    "border border-gray-300 mb-2 p-2 text-sm block w-full rounded",
+                  attrs: { type: "text", placeholder: "کار اول" },
+                  domProps: { value: task.value },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(task, "value", $event.target.value)
+                    }
+                  }
                 })
               })
             ],
