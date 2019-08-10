@@ -86,14 +86,15 @@
 
 
 <script>
+import RevalForm from "./RevalForm";
 export default {
   data() {
     return {
-      form: {
+      form: new RevalForm({
         title: "",
         description: "",
         tasks: [{ body: "" }]
-      },
+      }),
       errors: {}
     };
   },
@@ -103,11 +104,12 @@ export default {
     },
 
     async submit() {
-      try {
-        location = (await axios.post("/projects", this.form)).data.message;
-      } catch (error) {
-        this.errors = error.response.data.errors;
-      }
+      this.form.submit("/projects");
+      // try {
+      //   location = (await axios.post("/projects", this.form)).data.message;
+      // } catch (error) {
+      //   this.errors = error.response.data.errors;
+      // }
 
       // let response = await axios
       //   .post("/projects", this.form)
