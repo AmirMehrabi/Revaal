@@ -1824,6 +1824,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -1838,7 +1839,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     addTask: function addTask() {
-      this.tasks.push({
+      this.form.tasks.push({
         value: ""
       });
     },
@@ -37192,177 +37193,193 @@ var render = function() {
         _vm._v("یک پروژه‌ی جدید شروع کنید")
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "flex" }, [
-        _c("div", { staticClass: "flex-1 ml-4" }, [
-          _c("div", { staticClass: "mb-4" }, [
-            _c(
-              "label",
-              { staticClass: "text-sm block mb-2", attrs: { for: "title" } },
-              [_vm._v("تیتر")]
-            ),
-            _vm._v(" "),
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.form.title,
-                  expression: "form.title"
-                }
-              ],
-              staticClass:
-                "border border-gray-300 p-2 text-sm block w-full rounded",
-              attrs: {
-                type: "text",
-                name: "title",
-                id: "title",
-                placeholder: "پروژه‌ی جدید من"
-              },
-              domProps: { value: _vm.form.title },
-              on: {
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.$set(_vm.form, "title", $event.target.value)
-                }
-              }
-            })
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "mb-4" }, [
-            _c(
-              "label",
-              {
-                staticClass: "text-sm block mb-2",
-                attrs: { for: "description" }
-              },
-              [_vm._v("تیتر")]
-            ),
-            _vm._v(" "),
-            _c("textarea", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.form.description,
-                  expression: "form.description"
-                }
-              ],
-              staticClass:
-                "border border-gray-300 p-2 text-sm block w-full rounded",
-              attrs: {
-                name: "description",
-                id: "description",
-                placeholder: "پروژه‌ی جدید من",
-                rows: "7"
-              },
-              domProps: { value: _vm.form.description },
-              on: {
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.$set(_vm.form, "description", $event.target.value)
-                }
-              }
-            })
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "flex-1 mr-4" }, [
-          _c(
-            "div",
-            { staticClass: "mb-4" },
-            [
-              _c("label", { staticClass: "text-sm block mb-2" }, [
-                _vm._v("کارهای مربوط به این پروژه")
-              ]),
-              _vm._v(" "),
-              _vm._l(_vm.tasks, function(task) {
-                return _c("input", {
+      _c(
+        "form",
+        {
+          on: {
+            submit: function($event) {
+              $event.preventDefault()
+              return _vm.submit($event)
+            }
+          }
+        },
+        [
+          _c("div", { staticClass: "flex" }, [
+            _c("div", { staticClass: "flex-1 ml-4" }, [
+              _c("div", { staticClass: "mb-4" }, [
+                _c(
+                  "label",
+                  {
+                    staticClass: "text-sm block mb-2",
+                    attrs: { for: "title" }
+                  },
+                  [_vm._v("تیتر")]
+                ),
+                _vm._v(" "),
+                _c("input", {
                   directives: [
                     {
                       name: "model",
                       rawName: "v-model",
-                      value: task.value,
-                      expression: "task.value"
+                      value: _vm.form.title,
+                      expression: "form.title"
                     }
                   ],
                   staticClass:
-                    "border border-gray-300 mb-2 p-2 text-sm block w-full rounded",
-                  attrs: { type: "text", placeholder: "کار اول" },
-                  domProps: { value: task.value },
+                    "border border-gray-300 p-2 text-sm block w-full rounded",
+                  attrs: {
+                    type: "text",
+                    name: "title",
+                    id: "title",
+                    placeholder: "پروژه‌ی جدید من"
+                  },
+                  domProps: { value: _vm.form.title },
                   on: {
                     input: function($event) {
                       if ($event.target.composing) {
                         return
                       }
-                      _vm.$set(task, "value", $event.target.value)
+                      _vm.$set(_vm.form, "title", $event.target.value)
                     }
                   }
                 })
-              })
-            ],
-            2
-          ),
-          _vm._v(" "),
-          _c(
-            "button",
-            {
-              staticClass: "inline-flex items-center text-xs",
-              attrs: { type: "button" },
-              on: { click: _vm.addTask }
-            },
-            [
-              _c(
-                "svg",
-                {
-                  staticClass: "ml-2",
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "mb-4" }, [
+                _c(
+                  "label",
+                  {
+                    staticClass: "text-sm block mb-2",
+                    attrs: { for: "description" }
+                  },
+                  [_vm._v("تیتر")]
+                ),
+                _vm._v(" "),
+                _c("textarea", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.form.description,
+                      expression: "form.description"
+                    }
+                  ],
+                  staticClass:
+                    "border border-gray-300 p-2 text-sm block w-full rounded",
                   attrs: {
-                    xmlns: "http://www.w3.org/2000/svg",
-                    width: "18",
-                    height: "18",
-                    viewBox: "0 0 18 18"
+                    name: "description",
+                    id: "description",
+                    placeholder: "پروژه‌ی جدید من",
+                    rows: "7"
+                  },
+                  domProps: { value: _vm.form.description },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.form, "description", $event.target.value)
+                    }
                   }
+                })
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "flex-1 mr-4" }, [
+              _c(
+                "div",
+                { staticClass: "mb-4" },
+                [
+                  _c("label", { staticClass: "text-sm block mb-2" }, [
+                    _vm._v("کارهای مربوط به این پروژه")
+                  ]),
+                  _vm._v(" "),
+                  _vm._l(_vm.form.tasks, function(task) {
+                    return _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: task.value,
+                          expression: "task.value"
+                        }
+                      ],
+                      staticClass:
+                        "border border-gray-300 mb-2 p-2 text-sm block w-full rounded",
+                      attrs: { type: "text", placeholder: "کار اول" },
+                      domProps: { value: task.value },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(task, "value", $event.target.value)
+                        }
+                      }
+                    })
+                  })
+                ],
+                2
+              ),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass: "inline-flex items-center text-xs",
+                  attrs: { type: "button" },
+                  on: { click: _vm.addTask }
                 },
                 [
                   _c(
-                    "g",
+                    "svg",
                     {
+                      staticClass: "ml-2",
                       attrs: {
-                        fill: "none",
-                        "fill-rule": "evenodd",
-                        opacity: ".307"
+                        xmlns: "http://www.w3.org/2000/svg",
+                        width: "18",
+                        height: "18",
+                        viewBox: "0 0 18 18"
                       }
                     },
                     [
-                      _c("path", {
-                        attrs: {
-                          stroke: "#000",
-                          "stroke-opacity": "0.012",
-                          "stroke-width": "0",
-                          d: "M-3-3h24v24H-3z"
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c("path", {
-                        attrs: {
-                          fill: "#000",
-                          d:
-                            "M9 0a9 9 0 0 0-9 9c0 4.97 4.02 9 9 9A9 9 0 0 0 9 0zm0 16c-3.87 0-7-3.13-7-7s3.13-7 7-7 7 3.13 7 7-3.13 7-7 7zm1-11H8v3H5v2h3v3h2v-3h3V8h-3V5z"
-                        }
-                      })
+                      _c(
+                        "g",
+                        {
+                          attrs: {
+                            fill: "none",
+                            "fill-rule": "evenodd",
+                            opacity: ".307"
+                          }
+                        },
+                        [
+                          _c("path", {
+                            attrs: {
+                              stroke: "#000",
+                              "stroke-opacity": "0.012",
+                              "stroke-width": "0",
+                              d: "M-3-3h24v24H-3z"
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("path", {
+                            attrs: {
+                              fill: "#000",
+                              d:
+                                "M9 0a9 9 0 0 0-9 9c0 4.97 4.02 9 9 9A9 9 0 0 0 9 0zm0 16c-3.87 0-7-3.13-7-7s3.13-7 7-7 7 3.13 7 7-3.13 7-7 7zm1-11H8v3H5v2h3v3h2v-3h3V8h-3V5z"
+                            }
+                          })
+                        ]
+                      )
                     ]
-                  )
+                  ),
+                  _vm._v(" "),
+                  _c("span", [_vm._v("افزودن یک وظیفه‌ی دیگر")])
                 ]
-              ),
-              _vm._v(" "),
-              _c("span", [_vm._v("افزودن یک وظیفه‌ی دیگر")])
-            ]
-          )
-        ])
-      ]),
+              )
+            ])
+          ])
+        ]
+      ),
       _vm._v(" "),
       _c("footer", { staticClass: "flex justify-end" }, [
         _c(
