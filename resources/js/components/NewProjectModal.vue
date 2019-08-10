@@ -94,8 +94,7 @@ export default {
         title: "",
         description: "",
         tasks: [{ body: "" }]
-      }),
-      errors: {}
+      })
     };
   },
   methods: {
