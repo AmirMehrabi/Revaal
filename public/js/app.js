@@ -1820,10 +1820,23 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      tasks: [{
+        value: ""
+      }, {
+        value: ""
+      }]
+    };
+  },
   methods: {
     addTask: function addTask() {
-      alert("You won't save unless called upon!");
+      this.tasks.push({
+        value: ""
+      });
     }
   }
 });
@@ -37217,17 +37230,25 @@ var render = function() {
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "flex-1 mr-4" }, [
-          _c("div", { staticClass: "mb-4" }, [
-            _c("label", { staticClass: "text-sm block mb-2" }, [
-              _vm._v("کارهای مربوط به این پروژه")
-            ]),
-            _vm._v(" "),
-            _c("input", {
-              staticClass:
-                "border border-gray-300 p-2 text-sm block w-full rounded",
-              attrs: { type: "text", placeholder: "کار اول" }
-            })
-          ]),
+          _c(
+            "div",
+            { staticClass: "mb-4" },
+            [
+              _c("label", { staticClass: "text-sm block mb-2" }, [
+                _vm._v("کارهای مربوط به این پروژه")
+              ]),
+              _vm._v(" "),
+              _vm._l(_vm.tasks, function(task) {
+                return _c("input", {
+                  key: task,
+                  staticClass:
+                    "border border-gray-300 p-2 text-sm block w-full rounded",
+                  attrs: { type: "text", placeholder: "کار اول" }
+                })
+              })
+            ],
+            2
+          ),
           _vm._v(" "),
           _c(
             "button",

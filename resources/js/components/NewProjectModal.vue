@@ -34,6 +34,8 @@
             type="text"
             class="border border-gray-300 p-2 text-sm block w-full rounded"
             placeholder="کار اول"
+            v-for="task in tasks"
+            v-bind:key="task"
           />
         </div>
 
@@ -70,17 +72,14 @@
 
 <script>
 export default {
-
   data() {
     return {
-      tasks : [
-        {'value': ''}
-      ]
-    }
+      tasks: [{ value: "" }, { value: "" }]
+    };
   },
   methods: {
     addTask() {
-      alert("You won't save unless called upon!");
+      this.tasks.push({ value: "" });
     }
   }
 };
