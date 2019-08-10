@@ -98,15 +98,21 @@ export default {
       this.form.tasks.push({ value: "" });
     },
 
-    submit() {
-      axios
-        .post("/projects", this.form)
-        .then(response => {
-          location.reload();
-        })
-        .catch(error => {
-          this.errors = error.response.data.errors;
-        });
+    async submit() {
+      try {
+        location = (await axios.post("/projects", this.form)).data.message;
+      } catch (error) {
+        this.errors = error.response.data.errors;
+      }
+
+      // let response = await axios
+      //   .post("/projects", this.form)
+      //   .then(response => {
+      //     location = response.data.message;
+      //   })
+      //   .catch(error => {
+      //     this.errors = error.response.data.errors;
+      //   });
     }
   }
 };
