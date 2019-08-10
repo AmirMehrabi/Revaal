@@ -1825,6 +1825,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -1834,7 +1841,8 @@ __webpack_require__.r(__webpack_exports__);
         tasks: [{
           value: ""
         }]
-      }
+      },
+      errors: {}
     };
   },
   methods: {
@@ -1844,7 +1852,14 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     submit: function submit() {
-      axios.post("/projects", this.form);
+      var _this = this;
+
+      axios.post("/projects", this.form).then(function (response) {
+        alert("پروژه ساخته شد");
+      })["catch"](function (error) {
+        alert("ERROR");
+        _this.errors = error.response.data.errors;
+      });
     }
   }
 });
@@ -37227,6 +37242,9 @@ var render = function() {
                   ],
                   staticClass:
                     "border border-gray-300 p-2 text-sm block w-full rounded",
+                  class: _vm.errors.title
+                    ? "border-red-400"
+                    : "border-gray-300",
                   attrs: {
                     type: "text",
                     name: "title",
@@ -37242,7 +37260,14 @@ var render = function() {
                       _vm.$set(_vm.form, "title", $event.target.value)
                     }
                   }
-                })
+                }),
+                _vm._v(" "),
+                _vm.errors.title
+                  ? _c("span", {
+                      staticClass: "text-xs text-italic text-red-400",
+                      domProps: { textContent: _vm._s(_vm.errors.title[0]) }
+                    })
+                  : _vm._e()
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "mb-4" }, [
@@ -37266,6 +37291,9 @@ var render = function() {
                   ],
                   staticClass:
                     "border border-gray-300 p-2 text-sm block w-full rounded",
+                  class: _vm.errors.description
+                    ? "border-red-400"
+                    : "border-gray-300",
                   attrs: {
                     name: "description",
                     id: "description",
@@ -37377,26 +37405,28 @@ var render = function() {
                 ]
               )
             ])
+          ]),
+          _vm._v(" "),
+          _c("footer", { staticClass: "flex justify-end" }, [
+            _c(
+              "button",
+              {
+                staticClass: "button is-outlined ml-2",
+                on: {
+                  click: function($event) {
+                    return _vm.$modal.hide("new-project")
+                  }
+                }
+              },
+              [_vm._v("رها کردن")]
+            ),
+            _vm._v(" "),
+            _c("button", { staticClass: "button", attrs: { type: "submit" } }, [
+              _vm._v("ساخت پروژه")
+            ])
           ])
         ]
-      ),
-      _vm._v(" "),
-      _c("footer", { staticClass: "flex justify-end" }, [
-        _c(
-          "button",
-          {
-            staticClass: "button is-outlined ml-2",
-            on: {
-              click: function($event) {
-                return _vm.$modal.hide("new-project")
-              }
-            }
-          },
-          [_vm._v("رها کردن")]
-        ),
-        _vm._v(" "),
-        _c("button", { staticClass: "button" }, [_vm._v("ساخت پروژه")])
-      ])
+      )
     ]
   )
 }

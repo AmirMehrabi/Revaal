@@ -12,9 +12,15 @@
               name="title"
               id="title"
               class="border border-gray-300 p-2 text-sm block w-full rounded"
+              :class="errors.title ? 'border-red-400' : 'border-gray-300'"
               placeholder="پروژه‌ی جدید من"
               v-model="form.title"
             />
+            <span
+              class="text-xs text-italic text-red-400"
+              v-if="errors.title"
+              v-text="errors.title[0]"
+            ></span>
           </div>
 
           <div class="mb-4">
@@ -23,6 +29,7 @@
               name="description"
               id="description"
               class="border border-gray-300 p-2 text-sm block w-full rounded"
+              :class="errors.description ? 'border-red-400' : 'border-gray-300'"
               placeholder="پروژه‌ی جدید من"
               rows="7"
               v-model="form.description"
@@ -63,12 +70,12 @@
           </button>
         </div>
       </div>
-    </form>
-    <footer class="flex justify-end">
-      <button class="button is-outlined ml-2" @click="$modal.hide('new-project')">رها کردن</button>
+      <footer class="flex justify-end">
+        <button class="button is-outlined ml-2" @click="$modal.hide('new-project')">رها کردن</button>
 
-      <button class="button">ساخت پروژه</button>
-    </footer>
+        <button type="submit" class="button">ساخت پروژه</button>
+      </footer>
+    </form>
   </modal>
 </template>
 
@@ -81,7 +88,8 @@ export default {
         title: "",
         description: "",
         tasks: [{ value: "" }]
-      }
+      },
+      errors: {}
     };
   },
   methods: {
@@ -90,7 +98,15 @@ export default {
     },
 
     submit() {
-      axios.post("/projects", this.form);
+      axios
+        .post("/projects", this.form)
+        .then(response => {
+          alert("پروژه ساخته شد");
+        })
+        .catch(error => {
+          alert("ERROR");
+          this.errors = error.response.data.errors;
+        });
     }
   }
 };
