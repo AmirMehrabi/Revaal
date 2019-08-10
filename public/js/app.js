@@ -50658,7 +50658,12 @@ function () {
   }, {
     key: "submit",
     value: function submit(endpoint) {
-      return axios.post(endpoint, this.data());
+      return axios.post(endpoint, this.data())["catch"](this.onFail.bind($this));
+    }
+  }, {
+    key: "onFail",
+    value: function onFail(error) {
+      this.errors = error.response.data.errors;
     }
   }]);
 
