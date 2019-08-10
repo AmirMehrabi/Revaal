@@ -74,7 +74,7 @@
 export default {
   data() {
     return {
-      tasks: [{ value: "" }, { value: "" }]
+      tasks: [{ value: "" }]
     };
   },
   methods: {
