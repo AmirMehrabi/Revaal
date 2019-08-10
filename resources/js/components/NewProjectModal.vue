@@ -70,6 +70,14 @@
 
 <script>
 export default {
+
+  data() {
+    return {
+      tasks : [
+        {'value': ''}
+      ]
+    }
+  },
   methods: {
     addTask() {
       alert("You won't save unless called upon!");
