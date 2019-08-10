@@ -34,6 +34,11 @@
               rows="7"
               v-model="form.description"
             ></textarea>
+            <span
+              class="text-xs text-italic text-red-400"
+              v-if="errors.title"
+              v-text="errors.description[0]"
+            ></span>
           </div>
         </div>
 
