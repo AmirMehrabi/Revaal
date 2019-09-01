@@ -15,10 +15,12 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css">
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
+
+    @yield('header-assets')
 </head>
 <body class="bg-gray-200">
     <div id="app">
@@ -36,19 +38,31 @@
                     </ul>
 
                     <!-- Right Side Of Navbar -->
-                    <div class="navbar-nav ml-auto">
+                    <div class="navbar-nav ml-auto my-2 flex">
                         <!-- Authentication Links -->
                         @guest
-                            <a class="nav-link" href="{{ route('login') }}">{{ __('ورود') }}</a>
+                            <a class="button " href="{{ route('login') }}">{{ __('ورود') }}</a>
 
                             @if (Route::has('register'))
-                                <a class="nav-link" href="{{ route('register') }}">{{ __('ثبت نام') }}</a>
+                                <a class="button is-outlined" href="{{ route('register') }}">{{ __('ثبت نام') }}</a>
                             @endif
                         @else
                         <a href="" class="flex items-center text-default no-underline text-sm" >
                             <img src="{{gravatar_url(auth()->user()->email)}}" width="35" class="rounded-full ml-3" alt="">
                             {{auth()->user()->name}}
                         </a>
+                                                            <a class="button is-outlined mr-4" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('خروج') }}
+                                    </a>
+                                                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
+                                </div>
                             {{-- <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>
@@ -78,4 +92,6 @@
         </main>
     </div>
 </body>
+
+@yield('footer-assets')
 </html>
