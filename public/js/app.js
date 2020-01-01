@@ -37994,7 +37994,7 @@ var render = function() {
       _c(
         "h1",
         { staticClass: "text-center text-5xl my-4 font-bold text-gray-100" },
-        [_vm._v("Add New Habbit")]
+        [_vm._v("Add New habit")]
       ),
       _vm._v(" "),
       _c(
@@ -38029,7 +38029,7 @@ var render = function() {
                     type: "text",
                     name: "title",
                     id: "title",
-                    placeholder: "My new habbit"
+                    placeholder: "My new habit"
                   },
                   domProps: { value: _vm.form.title },
                   on: {

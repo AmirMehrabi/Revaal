@@ -4,7 +4,7 @@
     classes="p-10 bg-orange-600 text-gray-100 rounded-lg shadow mr-auto"
     height="auto"
   >
-    <h1 class="text-center text-5xl my-4 font-bold text-gray-100">Add New Habbit</h1>
+    <h1 class="text-center text-5xl my-4 font-bold text-gray-100">Add New habit</h1>
 
     <form @submit.prevent="submit">
       <div class="flex">
@@ -16,7 +16,7 @@
               id="title"
               class="border-b-4 border-gray-200 p-2 text-sm bg-transparent text-gray-200 block w-full rounded text-lg focus:outline-none focus:shadow-lg"
               :class="form.errors.title ? 'border-red-400' : 'border-gray-300'"
-              placeholder="My new habbit"
+              placeholder="My new habit"
               v-model="form.title"
             />
             <span
