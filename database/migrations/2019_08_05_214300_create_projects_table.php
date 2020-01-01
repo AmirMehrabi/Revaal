@@ -18,9 +18,10 @@ class CreateProjectsTable extends Migration
             $table->unsignedInteger('owner_id');
             $table->string('title');
             $table->text('description');
+            $table->string('color')->default('blue');
             $table->text('notes')->nullable();
+            $table->boolean('completed')->default(false);
             $table->timestamps();
-
             $table->foreign('owner_id')->references('id')->on('users')->onDelete('cascade');
         });
     }

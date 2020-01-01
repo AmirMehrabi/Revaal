@@ -1,1 +1,7 @@
+body {
+    direction: ltr;
+}
 
+.rtl {
+    direction: rtl;
+}

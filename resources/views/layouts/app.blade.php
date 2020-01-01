@@ -15,7 +15,7 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css">
+    <link rel="stylesheet" href="{{ asset('fontawesome/css/all.css')}}">
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
@@ -26,29 +26,35 @@
     <div id="app">
         <nav class="bg-white">
             <div class="container mx-auto">
-                <div class="flex justify-between items-center py-2">
+                <div class="flex justify-between items-center py-2 rtl">
                                     <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
                 </a>
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
+          
+                <div class="navbar-nav ml-auto my-2 flex items-center">
+                    <!-- Authentication Links -->
+                    @auth
+                    <a class="button mx-4" href="{{ url('/dashboard-dark') }}">{{ __('خانه') }}</a>
 
-                    </ul>
+                    @endauth
+
+                    </div>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
 
                     <!-- Right Side Of Navbar -->
-                    <div class="navbar-nav ml-auto my-2 flex">
+                    <div class="navbar-nav mr-auto my-2 flex items-center">
                         <!-- Authentication Links -->
                         @guest
-                            <a class="button " href="{{ route('login') }}">{{ __('ورود') }}</a>
+                            <a class="button mx-4" href="{{ route('login') }}">{{ __('ورود') }}</a>
 
                             @if (Route::has('register'))
                                 <a class="button is-outlined" href="{{ route('register') }}">{{ __('ثبت نام') }}</a>
                             @endif
                         @else
                         <a href="" class="flex items-center text-default no-underline text-sm" >
-                            <img src="{{gravatar_url(auth()->user()->email)}}" width="35" class="rounded-full ml-3" alt="">
+                            <img src="{{gravatar_url(auth()->user()->email)}}" width="35" class="rounded-full mx-3" alt="">
                             {{auth()->user()->name}}
                         </a>
                                                             <a class="button is-outlined mr-4" href="{{ route('logout') }}"

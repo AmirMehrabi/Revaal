@@ -12,7 +12,16 @@ class ProjectsController extends Controller
         $projects = auth()->user()->projects()->orderBy('updated_at', 'desc')->get();
         return view('projects.index', compact('projects'));
     }
+    public function darkIndex()
+    {
+        $projects = auth()->user()->projects()->orderBy('updated_at', 'desc')->get();
 
+        $done_tasks = $projects->where('completed', 1);
+        $daily_percent = round($done_tasks->count() / $projects->count() * 100);
+
+        
+        return view('dashboard-dark', compact('projects', 'daily_percent'));
+    }
     public function create()
     {
         return view('projects.create');
@@ -20,14 +29,12 @@ class ProjectsController extends Controller
 
     public function show(Project $project)
     {
-
         $this->authorize('update', $project);
         return view('projects.show', compact('project'));
     }
 
     public function store()
     {
-
         $project = auth()->user()->projects()->create($this->validateRequest());
 
         if ($tasks = request('tasks')) {
@@ -35,9 +42,11 @@ class ProjectsController extends Controller
         }
 
         if (request()->wantsJson()) {
-            return ['message' => $project->path()];
+            return ['message' => 'dashboard'];
+            // return ['message' => $project->path()];
         }
-        return redirect($project->path());
+        dd($project);
+        return redirect('dashboard');
     }
 
     public function edit(Project $project)
@@ -47,9 +56,18 @@ class ProjectsController extends Controller
 
     public function update(Project $project)
     {
+        // return $this->validateRequest();
+        request('completed') ? $project->complete() : $project->incomplete();
+        return redirect('/dashboard-dark');
+        // $this->authorize('update', $project);
+        // $project->update($this->validateRequest());
+        // return redirect($project->path());
+    }
 
-        $this->authorize('update', $project);
-        $project->update($this->validateRequest());
+    public function complete(Project $project)
+    {
+        request('completed') ? $project->complete() : $project->incomplete();
+
         return redirect($project->path());
     }
 
@@ -65,6 +83,7 @@ class ProjectsController extends Controller
         return request()->validate([
             'title' => 'sometimes|required',
             'description' => 'sometimes|required',
+            'color' => 'nullable',
             'notes' => 'nullable'
         ]);
     }

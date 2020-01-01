@@ -1849,25 +1849,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       form: new _RevalForm__WEBPACK_IMPORTED_MODULE_1__["default"]({
         title: "",
+        color: "",
         description: "",
         tasks: [{
           body: ""
@@ -37998,13 +37986,13 @@ var render = function() {
     {
       attrs: {
         name: "new-project",
-        classes: "p-10 bg-white rounded-lg shadow mr-auto",
+        classes: "p-10 bg-gray-800 text-gray-100 rounded-lg shadow mr-auto",
         height: "auto"
       }
     },
     [
-      _c("h1", { staticClass: "text-center text-xl my-4" }, [
-        _vm._v("یک پروژه‌ی جدید شروع کنید")
+      _c("h1", { staticClass: "text-center text-4xl my-4" }, [
+        _vm._v("Add new habbit")
       ]),
       _vm._v(" "),
       _c(
@@ -38021,15 +38009,6 @@ var render = function() {
           _c("div", { staticClass: "flex" }, [
             _c("div", { staticClass: "flex-1 ml-4" }, [
               _c("div", { staticClass: "mb-4" }, [
-                _c(
-                  "label",
-                  {
-                    staticClass: "text-sm block mb-2",
-                    attrs: { for: "title" }
-                  },
-                  [_vm._v("تیتر")]
-                ),
-                _vm._v(" "),
                 _c("input", {
                   directives: [
                     {
@@ -38040,7 +38019,7 @@ var render = function() {
                     }
                   ],
                   staticClass:
-                    "border border-gray-300 p-2 text-sm block w-full rounded",
+                    "border border-gray-300 p-2 text-sm bg-black block w-full rounded text-lg",
                   class: _vm.form.errors.title
                     ? "border-red-400"
                     : "border-gray-300",
@@ -38048,7 +38027,7 @@ var render = function() {
                     type: "text",
                     name: "title",
                     id: "title",
-                    placeholder: "پروژه‌ی جدید من"
+                    placeholder: "My new habbit"
                   },
                   domProps: { value: _vm.form.title },
                   on: {
@@ -38073,14 +38052,84 @@ var render = function() {
               _vm._v(" "),
               _c("div", { staticClass: "mb-4" }, [
                 _c(
-                  "label",
+                  "select",
                   {
-                    staticClass: "text-sm block mb-2",
-                    attrs: { for: "description" }
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.form.color,
+                        expression: "form.color"
+                      }
+                    ],
+                    staticClass:
+                      "border border-gray-300 p-2 text-sm bg-black block w-full rounded text-lg",
+                    class: _vm.form.errors.color
+                      ? "border-red-400"
+                      : "border-gray-300",
+                    attrs: { name: "color", id: "color" },
+                    on: {
+                      change: function($event) {
+                        var $$selectedVal = Array.prototype.filter
+                          .call($event.target.options, function(o) {
+                            return o.selected
+                          })
+                          .map(function(o) {
+                            var val = "_value" in o ? o._value : o.value
+                            return val
+                          })
+                        _vm.$set(
+                          _vm.form,
+                          "color",
+                          $event.target.multiple
+                            ? $$selectedVal
+                            : $$selectedVal[0]
+                        )
+                      }
+                    }
                   },
-                  [_vm._v("تیتر")]
+                  [
+                    _c("option", { attrs: { value: "red" } }, [_vm._v("Red")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "blue" } }, [
+                      _vm._v("Blue")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "orange" } }, [
+                      _vm._v("Orange")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "yellow" } }, [
+                      _vm._v("Yellow")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "green" } }, [
+                      _vm._v("Green")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "teal" } }, [
+                      _vm._v("Teal")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "purple" } }, [
+                      _vm._v("Purple")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "pink" } }, [_vm._v("Pink")])
+                  ]
                 ),
                 _vm._v(" "),
+                _vm.form.errors.title
+                  ? _c("span", {
+                      staticClass: "text-xs italic text-red-600",
+                      domProps: {
+                        textContent: _vm._s(_vm.form.errors.title[0])
+                      }
+                    })
+                  : _vm._e()
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "mb-4" }, [
                 _c("textarea", {
                   directives: [
                     {
@@ -38091,14 +38140,14 @@ var render = function() {
                     }
                   ],
                   staticClass:
-                    "border border-gray-300 p-2 text-sm block w-full rounded",
+                    "border border-gray-300 p-2 text-sm bg-black block w-full rounded text-lg",
                   class: _vm.form.errors.description
                     ? "border-red-400"
                     : "border-gray-300",
                   attrs: {
                     name: "description",
                     id: "description",
-                    placeholder: "پروژه‌ی جدید من",
+                    placeholder: "Why the FUCK do you wanna do this shit?",
                     rows: "7"
                   },
                   domProps: { value: _vm.form.description },
@@ -38121,99 +38170,6 @@ var render = function() {
                     })
                   : _vm._e()
               ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "flex-1 mr-4" }, [
-              _c(
-                "div",
-                { staticClass: "mb-4" },
-                [
-                  _c("label", { staticClass: "text-sm block mb-2" }, [
-                    _vm._v("کارهای مربوط به این پروژه")
-                  ]),
-                  _vm._v(" "),
-                  _vm._l(_vm.form.tasks, function(task) {
-                    return _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: task.body,
-                          expression: "task.body"
-                        }
-                      ],
-                      staticClass:
-                        "border border-gray-300 mb-2 p-2 text-sm block w-full rounded",
-                      attrs: { type: "text", placeholder: "کار اول" },
-                      domProps: { value: task.body },
-                      on: {
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.$set(task, "body", $event.target.value)
-                        }
-                      }
-                    })
-                  })
-                ],
-                2
-              ),
-              _vm._v(" "),
-              _c(
-                "button",
-                {
-                  staticClass: "inline-flex items-center text-xs",
-                  attrs: { type: "button" },
-                  on: { click: _vm.addTask }
-                },
-                [
-                  _c(
-                    "svg",
-                    {
-                      staticClass: "ml-2",
-                      attrs: {
-                        xmlns: "http://www.w3.org/2000/svg",
-                        width: "18",
-                        height: "18",
-                        viewBox: "0 0 18 18"
-                      }
-                    },
-                    [
-                      _c(
-                        "g",
-                        {
-                          attrs: {
-                            fill: "none",
-                            "fill-rule": "evenodd",
-                            opacity: ".307"
-                          }
-                        },
-                        [
-                          _c("path", {
-                            attrs: {
-                              stroke: "#000",
-                              "stroke-opacity": "0.012",
-                              "stroke-width": "0",
-                              d: "M-3-3h24v24H-3z"
-                            }
-                          }),
-                          _vm._v(" "),
-                          _c("path", {
-                            attrs: {
-                              fill: "#000",
-                              d:
-                                "M9 0a9 9 0 0 0-9 9c0 4.97 4.02 9 9 9A9 9 0 0 0 9 0zm0 16c-3.87 0-7-3.13-7-7s3.13-7 7-7 7 3.13 7 7-3.13 7-7 7zm1-11H8v3H5v2h3v3h2v-3h3V8h-3V5z"
-                            }
-                          })
-                        ]
-                      )
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c("span", [_vm._v("افزودن یک وظیفه‌ی دیگر")])
-                ]
-              )
             ])
           ]),
           _vm._v(" "),
@@ -38221,7 +38177,17 @@ var render = function() {
             _c(
               "button",
               {
-                staticClass: "button is-outlined ml-2",
+                staticClass: "button bg-green-600 w-1/2 p-4 text-xl",
+                attrs: { type: "submit" }
+              },
+              [_vm._v("Add")]
+            ),
+            _vm._v(" "),
+            _c(
+              "button",
+              {
+                staticClass:
+                  "button is-outlined ml-2 bg-red-600 w-1/2 p-4 text-xl",
                 attrs: { type: "button" },
                 on: {
                   click: function($event) {
@@ -38229,12 +38195,8 @@ var render = function() {
                   }
                 }
               },
-              [_vm._v("رها کردن")]
-            ),
-            _vm._v(" "),
-            _c("button", { staticClass: "button", attrs: { type: "submit" } }, [
-              _vm._v("ساخت پروژه")
-            ])
+              [_vm._v("Cancel")]
+            )
           ])
         ]
       )

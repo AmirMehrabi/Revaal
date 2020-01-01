@@ -53,4 +53,26 @@ class Project extends Model
     {
         return $this->belongsToMany(User::class, 'project_members')->withTimestamps();
     }
+
+
+
+
+    protected $casts = [
+        'completed' => 'boolean'
+    ];
+
+    protected static $recordableEvents = ['created', 'deleted'];
+
+
+    public function complete()
+    {
+        $this->update(['completed' => true]);
+        $this->recordActivity('completed_task');
+    }
+
+    public function incomplete()
+    {
+        $this->update(['completed' => false]);
+        $this->recordActivity('incompleted_task');
+    }
 }

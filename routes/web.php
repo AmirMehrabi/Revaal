@@ -20,13 +20,17 @@ Route::get('/test', function () {
     return view('test');
 });
 
+
 Auth::routes();
 
 
 
 Route::group(['middleware' => 'auth'], function () {
-
     Route::resource('projects', 'ProjectsController');
+
+
+    Route::get('/dashboard', 'ProjectsController@darkIndex');
+    Route::get('/dashboard-dark', 'ProjectsController@darkIndex');
 
     Route::post('projects/{project}/tasks', 'ProjectTasksController@store');
     Route::patch('projects/{project}/tasks/{task}', 'ProjectTasksController@update');
