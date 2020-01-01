@@ -1,10 +1,10 @@
 <template>
   <modal
     name="new-project"
-    classes="p-10 bg-gray-800 text-gray-100 rounded-lg shadow mr-auto"
+    classes="p-10 bg-orange-600 text-gray-100 rounded-lg shadow mr-auto"
     height="auto"
   >
-    <h1 class="text-center text-4xl my-4">Add new habbit</h1>
+    <h1 class="text-center text-5xl my-4 font-bold text-gray-100">Add New Habbit</h1>
 
     <form @submit.prevent="submit">
       <div class="flex">
@@ -14,7 +14,7 @@
               type="text"
               name="title"
               id="title"
-              class="border border-gray-300 p-2 text-sm bg-black block w-full rounded text-lg"
+              class="border-b-4 border-gray-200 p-2 text-sm bg-transparent text-gray-200 block w-full rounded text-lg focus:outline-none focus:shadow-lg"
               :class="form.errors.title ? 'border-red-400' : 'border-gray-300'"
               placeholder="My new habbit"
               v-model="form.title"
@@ -26,7 +26,7 @@
             ></span>
           </div>
           <div class="mb-4">
-            <select name="color" id="color" class="border border-gray-300 p-2 text-sm bg-black block w-full rounded text-lg" v-model="form.color" :class="form.errors.color ? 'border-red-400' : 'border-gray-300'">
+            <select name="color" id="color" class="border-b-4 border-gray-200 p-2 text-sm bg-transparent text-gray-200 block w-full rounded text-lg focus:outline-none focus:shadow-lg" v-model="form.color" :class="form.errors.color ? 'border-red-400' : 'border-gray-300'">
 
               <option value="red">Red</option>
               <option value="blue">Blue</option>
@@ -48,10 +48,10 @@
             <textarea
               name="description"
               id="description"
-              class="border border-gray-300 p-2 text-sm bg-black block w-full rounded text-lg"
+              class="border-b-4 border-gray-200 p-2 text-sm bg-transparent text-gray-200 block w-full rounded text-lg focus:outline-none focus:shadow-lg"
               :class="form.errors.description ? 'border-red-400' : 'border-gray-300'"
-              placeholder="Why the FUCK do you wanna do this shit?"
-              rows="7"
+              placeholder="Why do I want to do this?"
+              rows="3"
               v-model="form.description"
             ></textarea>
             <span
@@ -62,12 +62,12 @@
           </div>
         </div>
       </div>
-      <footer class="flex justify-end">
-        <button type="submit" class="button bg-green-600 w-1/2 p-4 text-xl">Add</button>
+      <footer class="flex justify-around">
+        <button type="submit" class="button rounded-lg bg-white p-4 p-4 text-orange-500 text-xl w-2/5 hover:shadow-lg">Add</button>
 
         <button
           type="button"
-          class="button is-outlined ml-2 bg-red-600 w-1/2 p-4 text-xl"
+          class="button rounded-lg border-3 border-gray-300 bg-transparent p-4 text-xl w-2/5 hover:shadow-lg"
           @click="$modal.hide('new-project')"
         >Cancel</button>
       </footer>

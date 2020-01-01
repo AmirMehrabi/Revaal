@@ -37986,14 +37986,16 @@ var render = function() {
     {
       attrs: {
         name: "new-project",
-        classes: "p-10 bg-gray-800 text-gray-100 rounded-lg shadow mr-auto",
+        classes: "p-10 bg-orange-600 text-gray-100 rounded-lg shadow mr-auto",
         height: "auto"
       }
     },
     [
-      _c("h1", { staticClass: "text-center text-4xl my-4" }, [
-        _vm._v("Add new habbit")
-      ]),
+      _c(
+        "h1",
+        { staticClass: "text-center text-5xl my-4 font-bold text-gray-100" },
+        [_vm._v("Add New Habbit")]
+      ),
       _vm._v(" "),
       _c(
         "form",
@@ -38019,7 +38021,7 @@ var render = function() {
                     }
                   ],
                   staticClass:
-                    "border border-gray-300 p-2 text-sm bg-black block w-full rounded text-lg",
+                    "border-b-4 border-gray-200 p-2 text-sm bg-transparent text-gray-200 block w-full rounded text-lg focus:outline-none focus:shadow-lg",
                   class: _vm.form.errors.title
                     ? "border-red-400"
                     : "border-gray-300",
@@ -38063,7 +38065,7 @@ var render = function() {
                       }
                     ],
                     staticClass:
-                      "border border-gray-300 p-2 text-sm bg-black block w-full rounded text-lg",
+                      "border-b-4 border-gray-200 p-2 text-sm bg-transparent text-gray-200 block w-full rounded text-lg focus:outline-none focus:shadow-lg",
                     class: _vm.form.errors.color
                       ? "border-red-400"
                       : "border-gray-300",
@@ -38140,15 +38142,15 @@ var render = function() {
                     }
                   ],
                   staticClass:
-                    "border border-gray-300 p-2 text-sm bg-black block w-full rounded text-lg",
+                    "border-b-4 border-gray-200 p-2 text-sm bg-transparent text-gray-200 block w-full rounded text-lg focus:outline-none focus:shadow-lg",
                   class: _vm.form.errors.description
                     ? "border-red-400"
                     : "border-gray-300",
                   attrs: {
                     name: "description",
                     id: "description",
-                    placeholder: "Why the FUCK do you wanna do this shit?",
-                    rows: "7"
+                    placeholder: "Why do I want to do this?",
+                    rows: "3"
                   },
                   domProps: { value: _vm.form.description },
                   on: {
@@ -38173,11 +38175,12 @@ var render = function() {
             ])
           ]),
           _vm._v(" "),
-          _c("footer", { staticClass: "flex justify-end" }, [
+          _c("footer", { staticClass: "flex justify-around" }, [
             _c(
               "button",
               {
-                staticClass: "button bg-green-600 w-1/2 p-4 text-xl",
+                staticClass:
+                  "button rounded-lg bg-white p-4 p-4 text-orange-500 text-xl w-2/5 hover:shadow-lg",
                 attrs: { type: "submit" }
               },
               [_vm._v("Add")]
@@ -38187,7 +38190,7 @@ var render = function() {
               "button",
               {
                 staticClass:
-                  "button is-outlined ml-2 bg-red-600 w-1/2 p-4 text-xl",
+                  "button rounded-lg border-3 border-gray-300 bg-transparent p-4 text-xl w-2/5 hover:shadow-lg",
                 attrs: { type: "button" },
                 on: {
                   click: function($event) {
