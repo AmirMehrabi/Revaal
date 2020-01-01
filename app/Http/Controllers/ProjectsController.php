@@ -17,7 +17,7 @@ class ProjectsController extends Controller
         $projects = auth()->user()->projects()->orderBy('updated_at', 'desc')->get();
 
         $done_tasks = $projects->where('completed', 1);
-        $daily_percent = round($done_tasks->count() / $projects->count() * 100);
+        $daily_percent = round(@($done_tasks->count() / $projects->count()) * 100);
 
         
         return view('dashboard-dark', compact('projects', 'daily_percent'));
