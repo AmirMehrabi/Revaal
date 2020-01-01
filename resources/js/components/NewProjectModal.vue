@@ -10,7 +10,7 @@
       <div class="flex">
         <div class="flex-1 ml-4">
           <div class="mb-4">
-            <input
+            <input 
               type="text"
               name="title"
               id="title"
@@ -23,7 +23,7 @@
               class="text-xs italic text-red-600"
               v-if="form.errors.title"
               v-text="form.errors.title[0]"
-            ></span>
+            ></span> 
           </div>
           <div class="mb-4">
             <select name="color" id="color" class="border-b-4 border-gray-200 p-2 text-sm bg-transparent text-gray-200 block w-full rounded text-lg focus:outline-none focus:shadow-lg" v-model="form.color" :class="form.errors.color ? 'border-red-400' : 'border-gray-300'">
