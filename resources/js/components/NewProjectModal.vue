@@ -1,10 +1,12 @@
 <template>
   <modal
+  :width="550"
+  :height="550"
     name="new-project"
-    classes="p-10 bg-orange-600 text-gray-100 rounded-lg shadow mr-auto"
+    classes="p-10 add-modal text-gray-bg rounded-lg shadow mr-auto"
     height="auto"
   >
-    <h1 class="text-center text-5xl my-4 font-bold text-gray-100">Add New habit</h1>
+    <h1 class="text-center text-5xl my-4 font-bold text-gray-bg tracking-wider font-extrabold">Add New habit</h1>
 
     <form @submit.prevent="submit">
       <div class="flex">
@@ -14,7 +16,7 @@
               type="text"
               name="title"
               id="title"
-              class="border-b-4 border-gray-200 p-2 text-sm bg-transparent text-gray-200 block w-full rounded text-lg focus:outline-none focus:shadow-lg"
+              class="border-b-4 border-gray-bg p-2 text-sm bg-transparent text-gray-bg block w-full rounded text-lg focus:outline-none focus:shadow-lg"
               :class="form.errors.title ? 'border-red-400' : 'border-gray-300'"
               placeholder="My new habit"
               v-model="form.title"
@@ -26,7 +28,7 @@
             ></span> 
           </div>
           <div class="mb-4">
-            <select name="color" id="color" class="border-b-4 border-gray-200 p-2 text-sm bg-transparent text-gray-200 block w-full rounded text-lg focus:outline-none focus:shadow-lg" v-model="form.color" :class="form.errors.color ? 'border-red-400' : 'border-gray-300'">
+            <select name="color" id="color" class="border-b-4 border-gray-bg p-2 text-sm bg-transparent text-gray-bg block w-full rounded text-lg focus:outline-none focus:shadow-lg" v-model="form.color" :class="form.errors.color ? 'border-red-400' : 'border-gray-300'">
 
               <option value="red">Red</option>
               <option value="blue">Blue</option>
@@ -48,7 +50,7 @@
             <textarea
               name="description"
               id="description"
-              class="border-b-4 border-gray-200 p-2 text-sm bg-transparent text-gray-200 block w-full rounded text-lg focus:outline-none focus:shadow-lg"
+              class="border-b-4 border-gray-bg p-2 text-sm bg-transparent text-gray-bg block w-full rounded text-lg focus:outline-none focus:shadow-lg"
               :class="form.errors.description ? 'border-red-400' : 'border-gray-300'"
               placeholder="Why do I want to do this?"
               rows="3"
@@ -63,11 +65,11 @@
         </div>
       </div>
       <footer class="flex justify-around">
-        <button type="submit" class="button rounded-lg bg-white p-4 p-4 text-orange-500 text-xl w-2/5 hover:shadow-lg">Add</button>
+        <button type="submit" class="button rounded-lg bg-gray-bg p-4 p-4 text-orange-500 text-2xl w-2/5 hover:shadow-xl font-extrabold hover:bg-gray-light">Add</button>
 
         <button
           type="button"
-          class="button rounded-lg border-3 border-gray-300 bg-transparent p-4 text-xl w-2/5 hover:shadow-lg"
+          class="button rounded-lg border-3 border-gray-bg bg-transparent p-4 text-2xl w-2/5 hover:shadow-xl font-extrabold hover:bg-gray-light"
           @click="$modal.hide('new-project')"
         >Cancel</button>
       </footer>

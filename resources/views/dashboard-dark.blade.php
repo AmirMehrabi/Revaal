@@ -15,16 +15,18 @@
 </header> --}}
 
 <main class="container">
-    <div class=" bg-gray-800 rounded-lg shadow-lg">
+
+    
+    <div class=" bg-gray-bg rounded-lg shadow-lg">
         
     <div class="flex flex-row items-center">
         <div class="text-gray-700 flex-grow px-4 py-2 mr-2">
-            <h1 class="text-4xl text-white">{{ Carbon\Carbon::now()->format('l jS\\, F')}}</h1>
+            <h1 class="text-4xl text-gray-light font-extrabold tracking-wider">{{ Carbon\Carbon::now()->format('l jS\\, F')}}</h1>
             {{-- <p class="text-gray-600">۵ ساعت و ۳۰ دقیقه تا زمان خواب</p> --}}
         </div>
-        <div class="text-gray-100 px-4 py-2 ml-2 text-left">
+        <div class="text-gray-light px-4 py-2 ml-2 text-left">
             <div class="flex flex-col text-left items-start">
-                <div class="bg-green-400 text-white rounded shadow-xl text-center flex items-center px-4 m-2 h-16 w-16">
+                <div class="bg-green-main text-gray-light shadow-xl text-center flex items-center px-4 m-2 h-16 w-16">
                     <a href="/projects/create" class="button w-full h-full flex items-center justify-center" @click.prevent="$modal.show('new-project')"><i class="fas fa-plus fa-2x   "></i></a></div>  
 </div>
 
@@ -33,33 +35,26 @@
     </div>
     @if ($daily_percent > 0)
     <div class="px-2 my-8">
-        <div class="shadow-2xl w-full bg-gray-800 rounded">
-            <div class="text-xl bg-gray-300 py-5 text-xs rounded leading-none text-center text-gray-800 text-3xl"
+        <div class=" w-full bg-gray-bg ">
+            <div class="text-xl bg-gray-light font-extrabold py-5 text-xs  leading-none text-center text-gray-bg text-4xl shadow-2xl flex justify-end h-24 flex items-center"
                 style="width: {{ $daily_percent }}%">{{ $daily_percent }}% &nbsp;</div>
         </div>
         
     </div>
     
-        @else 
 
-        <div class="p-4 mx-auto">
-            <div class="flex justify-between w-3/4 mx-auto text-right items-center bg-white leading-none text-blue-600 rounded-full p-2 shadow text-teal text-sm">
-              <span class="flex bg-blue-600 text-white rounded-full h-6 px-3 justify-center items-center">0%</span>
-              <span class="flex px-2">امروز هیچ عادتی را به اتمام نرسانده‌اید</span>
-            </div>
-          </div>
     @endif
 
 
 
-<div class=" bg-gray-700 rounded-lg p-3 my-8">
+<div class=" bg-gray-dark rounded-lg p-3 my-8" style="">
     
 <div class="flex flex-wrap align-items-center justify-center">
     @forelse ($projects as $project)
     @if ($project->completed == 0)
     {{-- Habit Card --}}
-    <div class="habit-card w-30 mh-30 flex-none p-2 items-center content-between">
-        <div class=" min-h-full flex flex-wrap content-around bg-gray-700 rounded-2xl mh-20 text-white text-center p-2  border-3 border-{{ $project->color ?? 'blue'}}-500">
+    <div class="habit-card habit-box w-30 mh-30 flex-none p-2 items-center content-between">
+        <div class="min-h-full flex flex-wrap content-around bg-gray-dark rounded-2xl mh-20 text-gray-light text-center p-2  border-3 border-{{ $project->color ?? 'blue'}}-500">
             <div class="flex flex-row w-full content-center justify-center items-center my-2">
                 <div class="text-center t5ext-sm"> {{ $project->title}} </div>
     
@@ -70,7 +65,7 @@
                 @csrf
                 <div class="w-full">
                     <label class="flex justify-center items-center">
-                        <div class="bg-white border-2 rounded border-gray-400 w-12 h-12 flex flex-shrink-0 justify-center items-center  focus-within:border-blue-500 rounded-full">
+                        <div class="bg-white  rounded  w-10 h-10 flex flex-shrink-0 justify-center items-center  rounded-full shadow-md hover:shadow-xl">
                           <input type="checkbox" class="opacity-0 absolute" onchange="this.form.submit()" name="completed" {{$project->completed ? 'checked' : ''}}>
                           <svg  class="fill-current w-5 h-5 text-red-500 pointer-events-none" viewBox="0 0 47.971 47.971" style="enable-background:new 0 0 47.971 47.971;" xml:space="preserve">
                      <g>
@@ -111,7 +106,7 @@
                      </g>
                      </svg>
                      
-                          <svg class="fill-current hidden w-5 h-5 text-green-500 pointer-events-none" viewBox="0 0 20 20"><path d="M0 11l2-2 5 5L18 3l2 2L7 18z"/></svg>
+                          <svg class="fill-current hidden w-5 h-5 text-green-main pointer-events-none" viewBox="0 0 20 20"><path d="M0 11l2-2 5 5L18 3l2 2L7 18z"/></svg>
                         </div>
                       </label>
                 </div>
@@ -127,8 +122,8 @@
       {{-- End of habit card --}}      
       
       @elseif($project->completed == 1)
-      <div class="habit-card w-full sm:w-1/3 md:w-1/4 lg:w-1/5 xl:w-1/12 flex-none p-2 items-center content-between">
-        <div class=" min-h-full flex flex-wrap content-around bg-green-500 rounded-2xl mh-20 text-white text-center p-2  border-3 border-green-500">
+      <div class="habit-card habit-box w-full sm:w-1/3 md:w-1/4 lg:w-1/5 xl:w-1/12 flex-none p-2 items-center content-between">
+        <div class=" min-h-full flex flex-wrap content-around bg-{{ $project->color ?? 'blue'}}-500 rounded-2xl mh-20 text-gray-light text-center p-2  border-3 border-{{ $project->color ?? 'blue'}}-500">
             <div class="flex flex-row w-full content-center justify-center items-center my-2">
                 <div class="text-center t5ext-sm"> {{ $project->title }} </div>
     
@@ -140,9 +135,10 @@
 
                 <div class="w-full">
                     <label class="flex justify-center items-center">
-                        <div class="bg-white border-2 rounded border-gray-400 w-12 h-12 flex flex-shrink-0 justify-center items-center  focus-within:border-blue-500 rounded-full">
+
+                        <div class="bg-white  rounded  w-10 h-10 flex flex-shrink-0 justify-center items-center  rounded-full shadow-md hover:shadow-xl">
                           <input type="checkbox" class="opacity-0 absolute" onchange="this.form.submit()" name="completed" {{$project->completed ? 'checked' : ''}}>
-                          <svg class="fill-current hidden w-4 h-4 text-green-500 pointer-events-none" viewBox="0 0 20 20"><path d="M0 11l2-2 5 5L18 3l2 2L7 18z"/></svg>
+                          <svg class="fill-current hidden w-4 h-4 text-green-main pointer-events-none" viewBox="0 0 20 20"><path d="M0 11l2-2 5 5L18 3l2 2L7 18z"/></svg>
                         </div>
                       </label>
                 </div>
@@ -154,7 +150,7 @@
     @endif
 
     @empty
-        <div class="text-white text-xl my-4">هنوز عادتی در سیستم ثبت نکرده‌اید. برای ثبت عادت جدید <a href="/projects/create" class="text-blue-300 hover:text-blue-400" @click.prevent="$modal.show('new-project')">اینجا</a> کلیک کنید</div>
+        <div class="text-gray-400 text-xl my-4 py-20 text-3xl tracking-widers">You don't have any habits yet.</div>
     @endforelse
 
 
@@ -169,8 +165,8 @@
 
 
     {{-- Habit Card --}}
-  {{-- <div class="habit-card w-full sm:w-1/3 md:w-1/4 lg:w-1/5 xl:w-1/12 flex-none p-2 items-center content-between">
-    <div class=" min-h-full flex flex-wrap content-around bg-green-500 rounded-2xl mh-20 text-white text-center p-2  border-3 border-green-500">
+  {{-- <div class="habit-card habit-box w-full sm:w-1/3 md:w-1/4 lg:w-1/5 xl:w-1/12 flex-none p-2 items-center content-between">
+    <div class=" min-h-full flex flex-wrap content-around bg-green-500 rounded-2xl mh-20 text-gray-light text-center p-2  border-3 border-green-500">
         <div class="flex flex-row w-full content-center justify-center items-center my-2">
             <div class="text-center t5ext-sm"> Drink Water </div>
 
@@ -189,7 +185,7 @@
 </div>
     {{-- <div class="text-gray-700 text-center mt-2">
                 <div class="shadow w-full  rounded-full">
-                    <div class="bg-gray-600 text-xs rounded-full leading-none text-center text-white"
+                    <div class="bg-gray-600 text-xs rounded-full leading-none text-center text-gray-light"
                         style="width: 60%">&nbsp;</div>
                 </div>
   </div> --}}
@@ -202,13 +198,13 @@
 </main>
 
 
-<section class="container rounded-lg shadow-lg mt-5">
+<section class="container rounded-lg mt-5">
 
-<div class="flex-center position-ref p-5">
+<div class="flex-center position-ref py-5">
 
     <div class="content w-full">
 
-        <div class="w-full px-3 pb-6">
+        <div class="w-full py-3 pb-6">
             <div class="">
                 <table class="table w-full flex justify-between">
                     <thead id="calendar-body">
@@ -218,54 +214,58 @@
 
 
                 <div class="flex flex-row justify-between w-full">
-                    <div class="text-gray-500  text-4xl"> {{ Carbon\Carbon::now()->addMonthsNoOverflow(-1)->format(' F')}} </div>
-                    <div class="text-gray-100 text-bold text-4xl"> {{ Carbon\Carbon::now()->format(' F')}} </div>
-                    <div class="text-gray-500  text-4xl"> {{ Carbon\Carbon::now()->addMonthsNoOverflow(1)->format(' F')}} </div>
+                    <div class="text-gray-400  text-4xl font-bold"> {{ Carbon\Carbon::now()->addMonthsNoOverflow(-2)->format(' F')}} </div>
+                    <div class="text-gray-400  text-4xl font-bold"> {{ Carbon\Carbon::now()->addMonthsNoOverflow(-1)->format(' F')}} </div>
+                    <div class="text-gray-light font-extrabold text-4xl"> {{ Carbon\Carbon::now()->format(' F')}} </div>
+
                 </div>
-<div class="flex flex-row mb-10">
+<div class="flex flex-row my-12">
     <div class="w-1/2">&nbsp;</div>
-  <div class=" flex  w-1/2 text-gray-100 text-center h-32  items-center border-l border-white">
-                <div class="shadow w-full  rounded-full">
-                    <div class="bg-green-500 text-xs leading-none text-center text-white h-20 flex items-center"
-                        style="width: 25%"><p class="mx-auto text-xl"><span class=" text-3xl">30%</span> Progress</p></div>
-                </div>
-  </div>
+    @if ( $daily_percent > 0)
+    <div class=" flex  w-1/2 text-gray-light text-center h-32  items-center border-l border-white">
+        <div class=" w-full  rounded-full">
+            <div class="bg-green-main text-xs leading-none text-center text-gray-light h-20 flex items-center shadow h-24 flex items-center"
+                style="width: {{ $daily_percent }}%"><p class="mx-auto text-xl"><span class=" text-3xl font-extrabold">{{ $daily_percent }}%</span> Progress</p></div>
+        </div>
+</div>        
+    @endif
+
 </div>
             </div>
                     </thead>
                     <tr class="">
-                        <th class="text-right text-white "></th>
-                        <td class="h-10 w-10 text-center text-white">1</td>
-                        <td class="h-10 w-10 text-center text-white">2</td>
-                        <td class="h-10 w-10 text-center text-white">3</td>
-                        <td class="h-10 w-10 text-center text-white">4</td>
-                        <td class="h-10 w-10 text-center text-white">5</td>
-                        <td class="h-10 w-10 text-center text-white">6</td>
-                        <td class="h-10 w-10 text-center text-white">7</td>
-                        <td class="h-10 w-10 text-center text-white">8</td>
-                        <td class="h-10 w-10 text-center text-white">9</td>
-                        <td class="h-10 w-10 text-center text-white">10</td>
-                        <td class="h-10 w-10 text-center text-white">11</td>
-                        <td class="h-10 w-10 text-center text-white">12</td>
-                        <td class="h-10 w-10 text-center text-white">13</td>
-                        <td class="h-10 w-10 text-center text-white">14</td>
-                        <td class="h-10 w-10 text-center text-white">15</td>
-                        <td class="h-10 w-10 text-center text-white">16</td>
-                        <td class="h-10 w-10 text-center text-white">17</td>
-                        <td class="h-10 w-10 text-center text-white">18</td>
-                        <td class="h-10 w-10 text-center text-white">19</td>
-                        <td class="h-10 w-10 text-center text-white">20</td>
-                        <td class="h-10 w-10 text-center text-white">21</td>
-                        <td class="h-10 w-10 text-center text-white">22</td>
-                        <td class="h-10 w-10 text-center text-white">23</td>
-                        <td class="h-10 w-10 text-center text-white">24</td>
-                        <td class="h-10 w-10 text-center text-white">25</td>
-                        <td class="h-10 w-10 text-center text-white">26</td>
-                        <td class="h-10 w-10 text-center text-white">27</td>
-                        <td class="h-10 w-10 text-center text-white">28</td>
-                        <td class="h-10 w-10 text-center text-white">29</td>
-                        <td class="h-10 w-10 text-center text-white">30</td>
-                        <td class="h-10 w-10 text-center text-white">31</td>
+                        <th class="text-right text-gray-light font-normal "></th>
+                        <td class="h-10 w-10 text-center text-gray-400 font-bold">1</td>
+                        <td class="h-10 w-10 text-center text-gray-400 font-bold">2</td>
+                        <td class="h-10 w-10 text-center text-gray-400 font-bold">3</td>
+                        <td class="h-10 w-10 text-center text-gray-400 font-bold">4</td>
+                        <td class="h-10 w-10 text-center text-gray-400 font-bold">5</td>
+                        <td class="h-10 w-10 text-center text-gray-400 font-bold">6</td>
+                        <td class="h-10 w-10 text-center text-gray-400 font-bold">7</td>
+                        <td class="h-10 w-10 text-center text-gray-400 font-bold">8</td>
+                        <td class="h-10 w-10 text-center text-gray-400 font-bold">9</td>
+                        <td class="h-10 w-10 text-center text-gray-400 font-bold">10</td>
+                        <td class="h-10 w-10 text-center text-gray-400 font-bold">11</td>
+                        <td class="h-10 w-10 text-center text-gray-400 font-bold">12</td>
+                        <td class="h-10 w-10 text-center text-gray-400 font-bold">13</td>
+                        <td class="h-10 w-10 text-center text-gray-400 font-bold">14</td>
+                        <td class="h-10 w-10 text-center text-gray-400 font-bold">15</td>
+                        <td class="h-10 w-10 text-center text-gray-400 font-bold">16</td>
+                        <td class="h-10 w-10 text-center text-gray-400 font-bold">17</td>
+                        <td class="h-10 w-10 text-center text-gray-400 font-bold">18</td>
+                        <td class="h-10 w-10 text-center text-gray-400 font-bold">19</td>
+                        <td class="h-10 w-10 text-center text-gray-400 font-bold">20</td>
+                        <td class="h-10 w-10 text-center text-gray-400 font-bold">21</td>
+                        <td class="h-10 w-10 text-center text-gray-400 font-bold">22</td>
+                        <td class="h-10 w-10 text-center text-gray-400 font-bold">23</td>
+                        <td class="h-10 w-10 text-center text-gray-400 font-bold">24</td>
+                        <td class="h-10 w-10 text-center text-gray-400 font-bold">25</td>
+                        <td class="h-10 w-10 text-center text-gray-400 font-bold">26</td>
+                        <td class="h-10 w-10 text-center text-gray-400 font-bold">27</td>
+                        <td class="h-10 w-10 text-center text-gray-400 font-bold">28</td>
+                        <td class="h-10 w-10 text-center text-gray-400 font-bold">29</td>
+                        <td class="h-10 w-10 text-center text-gray-400 font-bold">30</td>
+                        <td class="h-10 w-10 text-center text-gray-400 font-bold">31</td>
 
 
 
@@ -273,38 +273,38 @@
                     @foreach ($projects as $project)
 
                     <tr class="">
-                        <th class="text-right text-white ">{{ $project->title}}:</th>
-                        <td class="h-10 w-10 bg-gray-500"></td>
+                        <th class="text-right text-gray-light font-normal pr-4">{{ $project->title}}   </th>
+                        <td class="h-10 w-10 bg-gray-dark"></td>
                         <td class="h-10 w-10 bg-{{$project->color}}-500"></td>
-                        <td class="h-10 w-10 bg-gray-500"></td>
-                        <td class="h-10 w-10 bg-gray-500"></td>
-                        <td class="h-10 w-10 bg-gray-500"></td>
+                        <td class="h-10 w-10 bg-gray-dark"></td>
+                        <td class="h-10 w-10 bg-gray-dark"></td>
+                        <td class="h-10 w-10 bg-gray-dark"></td>
                         <td class="h-10 w-10 bg-{{$project->color}}-500"></td>
-                        <td class="h-10 w-10 bg-gray-500"></td>
-                        <td class="h-10 w-10 bg-gray-500"></td>
+                        <td class="h-10 w-10 bg-gray-dark"></td>
+                        <td class="h-10 w-10 bg-gray-dark"></td>
                         <td class="h-10 w-10 bg-{{$project->color}}-500"></td>
-                        <td class="h-10 w-10 bg-gray-500"></td>
-                        <td class="h-10 w-10 bg-gray-500"></td>
+                        <td class="h-10 w-10 bg-gray-dark"></td>
+                        <td class="h-10 w-10 bg-gray-dark"></td>
                         <td class="h-10 w-10 bg-{{$project->color}}-500"></td>
-                        <td class="h-10 w-10 bg-gray-500"></td>
-                        <td class="h-10 w-10 bg-gray-500"></td>
-                        <td class="h-10 w-10 bg-gray-500"></td>
+                        <td class="h-10 w-10 bg-gray-dark"></td>
+                        <td class="h-10 w-10 bg-gray-dark"></td>
+                        <td class="h-10 w-10 bg-gray-dark"></td>
                         <td class="h-10 w-10 bg-{{$project->color}}-500"></td>
-                        <td class="h-10 w-10 bg-gray-500"></td>
-                        <td class="h-10 w-10 bg-gray-500"></td>
-                        <td class="h-10 w-10 bg-gray-500"></td>
-                        <td class="h-10 w-10 bg-gray-500"></td>
-                        <td class="h-10 w-10 bg-gray-500"></td>
-                        <td class="h-10 w-10 bg-gray-500"></td>
-                        <td class="h-10 w-10 bg-gray-500"></td>
+                        <td class="h-10 w-10 bg-gray-dark"></td>
+                        <td class="h-10 w-10 bg-gray-dark"></td>
+                        <td class="h-10 w-10 bg-gray-dark"></td>
+                        <td class="h-10 w-10 bg-gray-dark"></td>
+                        <td class="h-10 w-10 bg-gray-dark"></td>
+                        <td class="h-10 w-10 bg-gray-dark"></td>
+                        <td class="h-10 w-10 bg-gray-dark"></td>
                         <td class="h-10 w-10 bg-{{$project->color}}-500"></td>
-                        <td class="h-10 w-10 bg-gray-500"></td>
-                        <td class="h-10 w-10 bg-gray-500"></td>
+                        <td class="h-10 w-10 bg-gray-dark"></td>
+                        <td class="h-10 w-10 bg-gray-dark"></td>
                         <td class="h-10 w-10 bg-{{$project->color}}-500"></td>
                         <td class="h-10 w-10 bg-{{$project->color}}-500"></td>
                         <td class="h-10 w-10 bg-{{$project->color}}-500"></td>
-                        <td class="h-10 w-10 bg-gray-500"></td>
-                        <td class="h-10 w-10 bg-gray-500"></td>
+                        <td class="h-10 w-10 bg-gray-dark"></td>
+                        <td class="h-10 w-10 bg-gray-dark"></td>
 
 
 

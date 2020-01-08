@@ -1849,6 +1849,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -37985,15 +37987,20 @@ var render = function() {
     "modal",
     {
       attrs: {
+        width: 550,
+        height: 550,
         name: "new-project",
-        classes: "p-10 bg-orange-600 text-gray-100 rounded-lg shadow mr-auto",
+        classes: "p-10 add-modal text-gray-bg rounded-lg shadow mr-auto",
         height: "auto"
       }
     },
     [
       _c(
         "h1",
-        { staticClass: "text-center text-5xl my-4 font-bold text-gray-100" },
+        {
+          staticClass:
+            "text-center text-5xl my-4 font-bold text-gray-bg tracking-wider font-extrabold"
+        },
         [_vm._v("Add New habit")]
       ),
       _vm._v(" "),
@@ -38021,7 +38028,7 @@ var render = function() {
                     }
                   ],
                   staticClass:
-                    "border-b-4 border-gray-200 p-2 text-sm bg-transparent text-gray-200 block w-full rounded text-lg focus:outline-none focus:shadow-lg",
+                    "border-b-4 border-gray-bg p-2 text-sm bg-transparent text-gray-bg block w-full rounded text-lg focus:outline-none focus:shadow-lg",
                   class: _vm.form.errors.title
                     ? "border-red-400"
                     : "border-gray-300",
@@ -38065,7 +38072,7 @@ var render = function() {
                       }
                     ],
                     staticClass:
-                      "border-b-4 border-gray-200 p-2 text-sm bg-transparent text-gray-200 block w-full rounded text-lg focus:outline-none focus:shadow-lg",
+                      "border-b-4 border-gray-bg p-2 text-sm bg-transparent text-gray-bg block w-full rounded text-lg focus:outline-none focus:shadow-lg",
                     class: _vm.form.errors.color
                       ? "border-red-400"
                       : "border-gray-300",
@@ -38142,7 +38149,7 @@ var render = function() {
                     }
                   ],
                   staticClass:
-                    "border-b-4 border-gray-200 p-2 text-sm bg-transparent text-gray-200 block w-full rounded text-lg focus:outline-none focus:shadow-lg",
+                    "border-b-4 border-gray-bg p-2 text-sm bg-transparent text-gray-bg block w-full rounded text-lg focus:outline-none focus:shadow-lg",
                   class: _vm.form.errors.description
                     ? "border-red-400"
                     : "border-gray-300",
@@ -38180,7 +38187,7 @@ var render = function() {
               "button",
               {
                 staticClass:
-                  "button rounded-lg bg-white p-4 p-4 text-orange-500 text-xl w-2/5 hover:shadow-lg",
+                  "button rounded-lg bg-gray-bg p-4 p-4 text-orange-500 text-2xl w-2/5 hover:shadow-xl font-extrabold hover:bg-gray-light",
                 attrs: { type: "submit" }
               },
               [_vm._v("Add")]
@@ -38190,7 +38197,7 @@ var render = function() {
               "button",
               {
                 staticClass:
-                  "button rounded-lg border-3 border-gray-300 bg-transparent p-4 text-xl w-2/5 hover:shadow-lg",
+                  "button rounded-lg border-3 border-gray-bg bg-transparent p-4 text-2xl w-2/5 hover:shadow-xl font-extrabold hover:bg-gray-light",
                 attrs: { type: "button" },
                 on: {
                   click: function($event) {

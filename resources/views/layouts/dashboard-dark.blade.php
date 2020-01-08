@@ -23,20 +23,23 @@
 
     @yield('header-assets')
 </head>
-<body class="bg-gray-800">
+<body class="bg-gray-bg">
     <div id="app">
         
-<nav class="flex items-center  flex-wrap bg-gray-900">
-<div class="flex flex-row justify-between w-full">
-  <div class="text-gray-700 text-center px-4 py-2 flex items-center">
-    <svg class="fill-current h-6 w-6" width="54" height="54" viewBox="0 0 54 54" xmlns="http://www.w3.org/2000/svg"><path d="M13.5 22.1c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05zM0 38.3c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05z"/></svg>
+<nav class="flex items-center  flex-wrap bg-black-transparent fixed w-full mb-10" style="height: 47px;">
+  <div class="container mx-auto h-full">
+    <div class="flex flex-row justify-between w-full h-full">
+      <div class="text-gray-700 text-center px-4 py-2 flex items-center">
+        <svg class="fill-current h-6 w-6" width="54" height="54" viewBox="0 0 54 54" xmlns="http://www.w3.org/2000/svg"><path d="M13.5 22.1c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05zM0 38.3c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05z"/></svg>
+      </div>
+      <div class="bg-green-main text-white  shadow-xl text-center flex items-center justify-center h-full" style="width: 47px; height: 47px;">
+        <a href="/projects/create" class="button h-full flex justify-center items-center" @click.prevent="$modal.show('new-project')"><i class="fas fa-plus  fa-2x  "></i></a></div>
+      <div class="flex text-gray-700 text-center items-center m-2 justify-center content-center">
+        <img src="{{ asset('images/avatar.jpg') }}" class="rounded-full w-10 h-10" alt="">
+      </div>
+    </div>
   </div>
-  <div class="bg-green-400 text-white rounded shadow-xl text-center flex items-center px-4 m-2">
-    <a href="/projects/create" class="button" @click.prevent="$modal.show('new-project')"><i class="fas fa-plus    "></i></a></div>
-  <div class="flex text-gray-700 text-center items-center m-2 justify-center content-center">
-    <img src="{{ asset('images/avatar.jpg') }}" class="rounded-full w-10 h-10" alt="">
-  </div>
-</div>
+
 
   {{-- <div class="flex items-center flex-shrink-0 text-white mr-6">
     <svg class="fill-current h-8 w-8 ml-2" width="54" height="54" viewBox="0 0 54 54" xmlns="http://www.w3.org/2000/svg"><path d="M13.5 22.1c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05zM0 38.3c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05z"/></svg>
@@ -66,7 +69,7 @@
 </nav>
 <new-project-modal></new-project-modal>
 
-        <main class="py-4 container mx-auto">
+        <main class="py-4 container mx-auto pt-20">
             @yield('content')
         </main>
     </div>
